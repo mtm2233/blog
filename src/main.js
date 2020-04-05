@@ -12,7 +12,6 @@ import 'element-ui/lib/theme-chalk/display.css'
 Vue.prototype.$http = axios
 // axios根路径
 axios.defaults.baseURL = 'http://localhost:2541/api/'
-
 Vue.config.productionTip = false
 
 new Vue({

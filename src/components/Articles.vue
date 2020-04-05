@@ -1,41 +1,20 @@
 <template>
   <div>
-    <el-container class="home-main">
-      <el-main>
-        <router-view></router-view>
-      </el-main>
-      <!--侧边栏-->
-      <el-aside class="hidden-sm-and-down">
-        <el-menu :default-active="$store.state.typeId" :unique-opened="true">
-          <!--一级菜单-->
-          <el-submenu :index="item.typeId + ''" v-for="item in rightMenusList" :key="item.typeId">
-            <!--一级菜单都模板区域-->
-            <template slot="title">
-              <!--文本-->
-              <span>{{item.type}}</span>
-            </template>
-            <!--二级菜单-->
-            <el-menu-item
-              :index="subItem.typeId+''"
-              v-for="subItem in item.children"
-              :key="subItem.typeId"
-              @click="changeTypeId(subItem.typeId)"
-            >
-              <template slot="title">
-                <!--文本-->
-                <span>{{subItem.type}}</span>
-              </template>
-            </el-menu-item>
-          </el-submenu>
-        </el-menu>
-      </el-aside>
-    </el-container>
+    <!-- 轮播图 -->
+    <el-carousel>
+      <el-carousel-item v-for="item in carouselList" :key="item.id">
+        <el-image
+          :src="require('../assets/image/carousel/'+item.imgUrl)"
+          @click="jumpContent(item.artId)"
+        ></el-image>
+      </el-carousel-item>
+    </el-carousel>
   </div>
 </template>
 <script>
 import { mapState, mapMutations } from 'vuex'
 export default {
-  name: 'home',
+  name: 'articles',
   data() {
     return {
       // 博客文章的条件
@@ -48,8 +27,6 @@ export default {
       },
       // 文章列表
       articleList: [],
-      // 右侧菜单列表
-      rightMenusList: [],
       // 轮播图列表
       carouselList: [
         { id: 1, imgUrl: 'a.jpeg', artId: 2001 },
@@ -66,21 +43,14 @@ export default {
       if (res.status !== 200) return this.$message.error('获取博客文章失败')
       this.articleList = res.data
     },
-    // 获取右侧导航栏
-    async getRightMenus() {
-      const { data: res } = await this.$http.get('menus/query')
-      if (res.status !== 200) return this.$message.error('获取右侧导航栏失败')
-      this.rightMenusList = res.data
-    },
     // 博客文章查看详情
     jumpContent(ArtId) {
       this.changeArtId(ArtId)
     },
-    ...mapMutations(['changeArtId', 'changeTypeId'])
+    ...mapMutations(['changeArtId'])
   },
   mounted() {
     this.getArticleList()
-    this.getRightMenus()
   },
   watch: {
     // nav搜索框
@@ -115,18 +85,5 @@ export default {
 .el-image {
   width: 100%;
   max-width: 860px;
-}
-.el-aside {
-  background-color: pink;
-  margin-top: 20px;
-  overflow: hidden;
-}
-.home-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-top: 60px;
-}
-.el-main {
-  width: 100%;
 }
 </style>

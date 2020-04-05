@@ -4,12 +4,12 @@
       <!--头部区域-->
       <el-header>
         <el-row type="flex" class="row-bg" justify="space-between">
-          <el-col :span="3">
+          <el-col :xs="20" :sm="5">
             <!-- logo -->
-            <img src="../assets/image/logo.png" alt />
+            <img src="../assets/image/logo.png" />
           </el-col>
           <!-- 导航栏 -->
-          <el-col :span="15">
+          <el-col :sm="19" :md="15" class="hidden-xs-only">
             <el-menu :default-active="this.$route.fullPath" mode="horizontal" router>
               <el-menu-item
                 :index="'/'+item.path"
@@ -18,8 +18,12 @@
               >{{item.name}}</el-menu-item>
             </el-menu>
           </el-col>
+          <el-col :xs="4" class="hidden-sm-and-up">
+            <!-- 显示Drawer 抽屉 -->
+            <span @click="drawer=true" class="showDrawer">菜 单</span>
+          </el-col>
           <!-- 搜索框 -->
-          <el-col :span="5">
+          <el-col :md="5" class="hidden-sm-and-down">
             <el-input
               placeholder="搜索关键字"
               prefix-icon="el-icon-search"
@@ -30,15 +34,22 @@
         </el-row>
       </el-header>
       <!--页面主体区域-->
-      <router-view :searchP="search"></router-view>
+      <router-view></router-view>
       <!-- 尾部区域 -->
       <el-footer>
         <a href="http://beian.miit.gov.cn" target="_blank">ICP备案号：苏ICP备19073933号</a> | Copyright © youcann.club
       </el-footer>
     </el-container>
+    <!-- Drawer 抽屉 -->
+    <el-drawer title="我是标题" :visible.sync="drawer" :with-header="false">
+      <el-menu :default-active="this.$route.fullPath" router>
+        <el-menu-item :index="'/'+item.path" v-for="item in nav" :key="item.navId">{{item.name}}</el-menu-item>
+      </el-menu>
+    </el-drawer>
   </div>
 </template>
 <script>
+import { mapMutations } from 'vuex'
 export default {
   name: 'blog',
   data() {
@@ -47,8 +58,8 @@ export default {
       nav: [],
       // 搜索框里的值
       value: '',
-      // propsHome
-      search: ''
+      // 控制Drawer 抽屉的显示与隐藏
+      drawer: false
     }
   },
   methods: {
@@ -59,10 +70,12 @@ export default {
       if (res.status !== 200) return this.$message.error('获取导航失败')
       this.nav = res.data
     },
-    // propsHome
+    // props 当搜索框失去焦点，传递search
     transfer() {
+      this.changeSearch(this.value)
       this.search = this.value
-    }
+    },
+    ...mapMutations(['changeSearch'])
   },
   mounted() {
     this.getNav()
@@ -75,15 +88,20 @@ export default {
   width: 100%;
   position: fixed;
   background-color: white;
+  z-index: 5;
 }
 #home .el-menu {
   border: none;
 }
-.el-menu-item {
-  padding: 0 30px;
-}
 .el-input {
   line-height: 60px;
+}
+.showDrawer {
+  display: block;
+  height: 60px;
+  line-height: 60px;
+  cursor: pointer;
+  color: #303133;
 }
 .el-footer {
   text-align: center;
