@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Blog from '../views/Blog.vue'
 import Home from '../views/Home.vue'
 import Articles from '../components/Articles.vue'
+import Contents from '../components/Contents.vue'
 
 Vue.use(VueRouter)
 
@@ -19,7 +20,8 @@ const routes = [
         component: Home,
         redirect: '/articles',
         children: [
-          { path: '/articles', name: 'articles', component: Articles }
+          { path: '/articles', name: 'articles', component: Articles },
+          { path: '/content', name: 'contents', component: Contents }
         ]
       }
     ]
@@ -28,6 +30,13 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  },
   base: process.env.BASE_URL,
   routes
 })

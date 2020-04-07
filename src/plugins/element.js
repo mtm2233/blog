@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import {
   Container, Header, Main, Footer, Aside, Row, Col, Menu, MenuItem,
-  Message, MessageBox, Input, Drawer, Carousel, CarouselItem, Image,
-  MenuItemGroup, Submenu
+  Message, MessageBox, Input, Drawer, Carousel, CarouselItem,
+  MenuItemGroup, Submenu, Card, Pagination, Button
 } from 'element-ui'
 
 Vue.use(Container)
@@ -18,9 +18,11 @@ Vue.use(Input)
 Vue.use(Drawer)
 Vue.use(Carousel)
 Vue.use(CarouselItem)
-Vue.use(Image)
 Vue.use(MenuItemGroup)
 Vue.use(Submenu)
+Vue.use(Card)
+Vue.use(Pagination)
+Vue.use(Button)
 
 // 全局挂载
 Vue.prototype.$message = Message

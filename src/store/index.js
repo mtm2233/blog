@@ -9,7 +9,7 @@ export default new Vuex.Store({
     search: '',
     // 博客文章Id
     artId: '',
-    typeId: '26'
+    typeId: ''
   },
   mutations: {
     changeSearch(state, search) {
