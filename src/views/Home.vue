@@ -39,34 +39,14 @@
           <el-button type="info" plain>点击进入</el-button>
           <!-- 最新评论 -->
           <h3>最新评论</h3>
-          <div class="reply" v-for="item in NewReplyList" :key="item.replyId">
-            <!-- 默认头像 -->
-            <div class="userImg">
-              <svg width="100%" height="100%">
-                <circle cx="20" cy="20" r="20" :fill="item.email|hashColor" />
-                <text
-                  x="20"
-                  y="20"
-                  fill="white"
-                  text-anchor="middle"
-                  dominant-baseline="middle"
-                >{{item.name.slice(0, 1)}}</text>
-              </svg>
-            </div>
-            <!-- 用户信息 -->
-            <div class="user">
-              <!-- 用户名 -->
-              <p>{{item.name}}</p>
-              <!-- 评论内容 -->
-              <p class="userCon">{{item.content}}</p>
-            </div>
-          </div>
+          <replys :repysList="NewReplyList" :pName="''"></replys>
         </div>
       </el-aside>
     </el-container>
   </div>
 </template>
 <script>
+import replys from '../components/replys.vue'
 import { mapMutations } from 'vuex'
 export default {
   name: 'home',
@@ -101,36 +81,15 @@ export default {
   mounted() {
     this.getRightMenus()
     this.getNewReplyList()
+  },
+  components: {
+    replys
   }
 }
 </script>
 <style scoped>
-.userImg {
-  width: 40px;
-  height: 40px;
-  margin: 10px 10px 10px 0;
-  float: left;
-}
-p {
-  margin: 0;
-  padding: 0;
-  word-break: break-all;
-  white-space: pre-wrap;
-}
-.user {
-  width: calc(100% - 60px);
-  margin: 10px 0;
-  float: left;
-}
-.reply {
-  width: 100%;
-  float: left;
-  border-bottom: 1px solid #d0d6d9;
-}
-.userCon {
-  font-size: 12px;
-}
 .el-aside {
+  padding-left: 20px;
   top: 20px;
   height: 100%;
   position: relative;
@@ -158,6 +117,8 @@ h3 {
 }
 .el-main {
   width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
 }
 .el-button {
   width: 95%;

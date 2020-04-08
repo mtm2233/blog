@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import './plugins/element.js'
+import { Loading } from 'element-ui'
 
 // 导入全局样式表
 import './assets/css/global.css'
@@ -14,7 +15,7 @@ Vue.prototype.$http = axios
 axios.defaults.baseURL = 'http://localhost:2541/api/'
 
 // 默认头像的颜色
-Vue.filter('hashColor', function (email) {
+Vue.filter('hashColor', function(email) {
   const colours = [
     '#1abc9c',
     '#2ecc71',
@@ -48,6 +49,18 @@ Vue.filter('hashColor', function (email) {
   // 取余操作
   const index = hashCode % 19
   return colours[index]
+})
+let loadingInstance
+// 在request 拦截器中，展示进度条 Nprogress.start()
+axios.interceptors.request.use(function(config) {
+  loadingInstance = Loading.service({})
+  // 在最后必须return config
+  return config
+})
+// 在response 拦截器中，隐藏进度条 Nprogress.done()
+axios.interceptors.response.use(function(config) {
+  loadingInstance.close()
+  return config
 })
 Vue.config.productionTip = false
 

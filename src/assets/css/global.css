@@ -1,8 +1,45 @@
 /*全局样式表*/
+
 html,
 body,
 #app {
     margin: 0;
     padding: 0;
     margin: 0 auto;
+}
+
+
+/* 等级牌子 */
+
+.level {
+    margin-left: 5px;
+    color: white;
+    background-color: pink;
+    border-radius: 3px;
+    padding: 0 5px;
+    font-size: 14px;
+}
+
+.level-1 {
+    background-color: #909399;
+}
+
+.level-2 {
+    background-color: #409eff;
+}
+
+.level-3 {
+    background-color: #67c23a;
+}
+
+.level-4 {
+    background-color: #e6a23c;
+}
+
+.level-5 {
+    background-color: #f56c6c;
+}
+
+.level-admin {
+    background-color: #fd5d3c;
 }

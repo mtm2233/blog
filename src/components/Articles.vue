@@ -57,7 +57,7 @@
   </div>
 </template>
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState } from 'vuex'
 export default {
   name: 'articles',
   data() {
@@ -95,8 +95,7 @@ export default {
     },
     // 博客文章查看详情
     jumpContent(ArtId) {
-      this.changeArtId(ArtId)
-      this.$router.push('/content')
+      this.$router.push('/content/' + ArtId)
     },
     handleSizeChange(newPagesize) {
       this.query.pagesize = newPagesize
@@ -105,8 +104,7 @@ export default {
     handleCurrentChange(newPagenum) {
       this.query.pagenum = newPagenum
       this.getArticleList()
-    },
-    ...mapMutations(['changeArtId'])
+    }
   },
   mounted() {
     this.getArticleList()

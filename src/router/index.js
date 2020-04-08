@@ -21,7 +21,7 @@ const routes = [
         redirect: '/articles',
         children: [
           { path: '/articles', name: 'articles', component: Articles },
-          { path: '/content', name: 'contents', component: Contents }
+          { path: '/content/:artId', name: 'contents', component: Contents }
         ]
       }
     ]
