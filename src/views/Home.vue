@@ -39,7 +39,7 @@
           <el-button type="info" plain>点击进入</el-button>
           <!-- 最新评论 -->
           <h3>最新评论</h3>
-          <replys :repysList="NewReplyList" :pName="''"></replys>
+          <replys :repysList="NewReplyList" :pName="''" :addReply="false"></replys>
         </div>
       </el-aside>
     </el-container>

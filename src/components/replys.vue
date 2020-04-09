@@ -26,18 +26,37 @@
           <p>
             <span v-if="pName">@{{pName}}</span>
             {{item.content}}
+            <a v-if="addReply" @click="changeReplyId(item.replyId)">回复</a>
+            <!-- 添加评论 -->
+            <add-reply v-if="addReply&&replyId==item.replyId"></add-reply>
           </p>
         </div>
-        <replys v-if="item.children" :repysList="item.children" :pName="item.name"></replys>
+        <replys
+          v-if="item.children"
+          :repysList="item.children"
+          :pName="item.name"
+          :addReply="addReply"
+        ></replys>
       </div>
       <hr v-if="!pName" />
     </li>
   </ul>
 </template>
 <script>
+import addReply from './addReply.vue'
+import { mapMutations, mapState } from 'vuex'
 export default {
   name: 'replys',
-  props: ['repysList', 'pName']
+  props: ['repysList', 'pName', 'addReply'],
+  components: {
+    addReply
+  },
+  methods: {
+    ...mapMutations(['changeReplyId'])
+  },
+  computed: {
+    ...mapState(['replyId'])
+  }
 }
 </script>
 <style scoped>
@@ -52,17 +71,17 @@ ul {
 .user {
   float: left;
   width: 100%;
-  /* border-bottom: 1px solid #d0d6d9; */
 }
 .userImg {
   width: 40px;
   height: 40px;
   float: left;
+  margin-top: 10px;
 }
 .userInfor {
   margin-left: 5px;
   float: left;
-  /* margin: 10px; */
+  margin-top: 10px;
 }
 .userInfor p {
   margin: 3px 0;
@@ -70,11 +89,16 @@ ul {
   font-size: 14px;
   vertical-align: middle;
   word-break: break-all;
-  white-space: pre-wrap;
 }
 .userInfor p span {
   font-size: 12px;
   color: #eb5055;
   margin-right: 5px;
+}
+a {
+  font-size: 12px;
+  color: #909399;
+  margin-right: 5px;
+  cursor: pointer;
 }
 </style>

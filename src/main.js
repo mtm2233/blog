@@ -10,10 +10,12 @@ import { Loading } from 'element-ui'
 import './assets/css/global.css'
 // 隐藏类
 import 'element-ui/lib/theme-chalk/display.css'
+// 操作cookie函数
+import { setCookie, getCookie, delCookie } from './assets/js/cookie.js'
 Vue.prototype.$http = axios
 // axios根路径
 axios.defaults.baseURL = 'http://localhost:2541/api/'
-
+Vue.prototype.$cookieStore = { setCookie, getCookie, delCookie }
 // 默认头像的颜色
 Vue.filter('hashColor', function(email) {
   const colours = [

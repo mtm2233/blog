@@ -26,18 +26,19 @@
       </span>
     </div>
     <hr />
-    <div v-html="article.content"></div>
+    <div v-html="article.content" class="artcon"></div>
     <!-- 添加评论 -->
-    <div class="addReply"></div>
+    <add-reply v-if="$store.state.replyId===0"></add-reply>
     <!-- 评论列表 -->
     <div class="replys">
-      <replys :repysList="repysList" :pName="''"></replys>
+      <replys :repysList="repysList" :pName="''" :addReply="true"></replys>
     </div>
   </div>
 </template>
 <script>
 // 评论组件
 import replys from './replys.vue'
+import addReply from './addReply.vue'
 export default {
   props: ['artId'],
   data() {
@@ -79,7 +80,8 @@ export default {
     this.getRepysList()
   },
   components: {
-    replys
+    replys,
+    addReply
   }
 }
 </script>
@@ -94,9 +96,7 @@ h2 {
 .bottom span {
   margin-right: 15px;
 }
-.addReply{
-  width: 100%;
-  background-color: pink;
-  padding: 10px;
+.artcon{
+  margin-bottom: 85px;
 }
 </style>
