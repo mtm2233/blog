@@ -40,6 +40,7 @@
           :repysList="item.children"
           :pName="item.name"
           :addReply="addReply"
+          :artId="artId"
         ></replys>
       </div>
       <hr v-if="!pName" />
