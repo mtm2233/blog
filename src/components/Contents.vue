@@ -68,7 +68,7 @@ export default {
 </script>
 <style scoped>
 #contents {
-  margin-top: 25px;
+  margin-top: 30px;
 }
 h2 {
   margin: 15px 0;
