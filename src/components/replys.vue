@@ -32,7 +32,7 @@
             <a>{{item.replyTime}}</a>
             <a v-if="addReply" @click="changeReplyId(item.replyId)">回复</a>
             <!-- 添加评论 -->
-            <add-reply v-if="addReply&&replyId==item.replyId"></add-reply>
+            <add-reply v-if="addReply&&replyId==item.replyId" :artId="artId"></add-reply>
           </p>
         </div>
         <replys
@@ -51,7 +51,7 @@ import addReply from './addReply.vue'
 import { mapMutations, mapState } from 'vuex'
 export default {
   name: 'replys',
-  props: ['repysList', 'pName', 'addReply'],
+  props: ['repysList', 'pName', 'addReply', 'artId'],
   components: {
     addReply
   },

@@ -8,10 +8,10 @@
       show-icon
       :closable="false"
     ></el-alert>
-    <add-reply v-if="$store.state.replyId===0 && isReply==='1'?true:false"></add-reply>
+    <add-reply v-if="$store.state.replyId===0 && isReply==='1'?true:false" :artId='artId'></add-reply>
     <!-- 评论列表 -->
     <div class="replys">
-      <replys :repysList="repysList" :pName="''" :addReply="isReply==='0'?false:true"></replys>
+      <replys :repysList="repysList" :pName="''" :addReply="isReply==='0'?false:true" :artId='artId'></replys>
     </div>
   </div>
 </template>
@@ -20,10 +20,12 @@ import replys from './replys.vue'
 import addReply from './addReply.vue'
 export default {
   name: 'reply',
-  props: ['artId', 'isReply'],
+  props: ['artId'],
   data() {
     return {
-      repysList: []
+      repysList: [],
+      // 是否显示
+      isReply: ''
     }
   },
   methods: {
@@ -34,6 +36,16 @@ export default {
         return this.$message.error('获取评论失败')
       }
       this.repysList = res.data
+    },
+    // 获取博客文章
+    async getArtById() {
+      const { data: res } = await this.$http.get(
+        'article/artById/' + this.artId
+      )
+      if (res.status !== 200) {
+        return this.$message.error('获取博客文章失败')
+      }
+      this.isReply = res.data[0].isReply
     }
   },
   components: {
@@ -43,6 +55,7 @@ export default {
   mounted() {
     this.$store.commit('changeReplyId', 0)
     this.getRepysList()
+    this.getArtById()
   }
 }
 </script>

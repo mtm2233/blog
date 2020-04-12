@@ -66,6 +66,7 @@
 import { mapMutations, mapState } from 'vuex'
 export default {
   name: 'addReply',
+  props: ['artId'],
   data() {
     return {
       // 添加评论
@@ -118,7 +119,7 @@ export default {
         if (!valid) return
         const { data: res } = await this.$http.post('reply/add', {
           ...this.addReplyForm,
-          artId: this.$route.params.artId,
+          artId: this.artId,
           parentId: this.replyId
         })
         if (res.status !== 201) {

@@ -28,7 +28,7 @@
     <hr />
     <div v-html="article.content" class="artcon"></div>
     <!-- 评论 -->
-    <reply :artId="$route.params.artId" :isReply="article.isReply"></reply>
+    <reply :artId="$route.params.artId"></reply>
   </div>
 </template>
 <script>
