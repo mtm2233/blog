@@ -113,7 +113,6 @@ h3 {
 .home-main {
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 60px;
 }
 .el-main {
   width: 100%;

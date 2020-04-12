@@ -13,10 +13,16 @@
       label-width="100px"
     >
       <!-- 根据cookie显示用户信息 -->
-      <div class="userBox">
-        <!-- 默认头像 -->
-        <div class="userImg" v-if="addReplyForm.name">
-          <svg width="100%" height="100%">
+      <div class="userBox" v-if="isToken">
+        <!-- 头像 -->
+        <div class="userImg">
+          <!-- qq头像 -->
+          <img
+            v-if="addReplyForm.imgSrc&&addReplyForm.imgSrc===addReplyForm.email+'.jpg'"
+            :src="require('../assets/image/qqImg/'+addReplyForm.imgSrc)"
+          />
+          <!-- 默认头像 -->
+          <svg width="100%" height="100%" v-else>
             <circle cx="17" cy="17" r="17" :fill="addReplyForm.email|hashColor" />
             <text
               x="17"
@@ -35,9 +41,10 @@
         </div>
         <div style="clear:both"></div>
       </div>
+      <!-- 是否是第一次登录 -->
       <div v-if="showUserInfo">
         <el-form-item label="昵称" prop="name">
-          <el-input v-model="addReplyForm.name"></el-input>
+          <el-input v-model="addReplyForm.name" @blur="qq()" placeholder="输入QQ号可快速填写"></el-input>
         </el-form-item>
         <el-form-item label="邮箱" prop="email">
           <el-input v-model="addReplyForm.email"></el-input>
@@ -67,15 +74,17 @@ export default {
         email: '',
         content: '',
         qq: '',
-        webSite: ''
+        webSite: '',
+        imgSrc: ''
       },
       // 是否显示基本信息输入框
       showUserInfo: true,
+      isToken: false,
       //   效验表单
       addReplyRules: {
         name: [
           { required: true, message: '请输入昵称', trigger: 'blur' },
-          { min: 2, max: 8, message: '长度在 2 到 8 个字符', trigger: 'blur' }
+          { min: 1, max: 10, message: '长度在 1 到 10 个字符', trigger: 'blur' }
         ],
         email: [
           { required: true, message: '请输入邮箱地址', trigger: 'blur' },
@@ -122,18 +131,33 @@ export default {
         this.$cookieStore.setCookie('email', res.token, 60 * 60 * 24 * 365 * 25)
         // 关闭评论
         this.changeReplyId(0)
+        this.getEmailToken()
       })
     },
     async getEmailToken() {
       // 获取token
       const token = this.$cookieStore.getCookie('email')
+      if (!token) return
       const { data: res } = await this.$http.post('user/token', {
         emailToken: token
       })
       if (res.status !== 200) return
       this.addReplyForm.email = res.data[0].email
       this.addReplyForm.name = res.data[0].name
+      this.addReplyForm.imgSrc = res.data[0].imgSrc
       this.showUserInfo = false
+      this.isToken = true
+    },
+    // 根据qq号获取昵称和头像
+    async qq() {
+      if (!/^[1-9]\d{4,9}$/.test(this.addReplyForm.name)) return
+      const { data: res } = await this.$http.get(
+        'user/qq?qq=' + this.addReplyForm.name
+      )
+      this.addReplyForm.qq = this.addReplyForm.name
+      this.addReplyForm.name = res.name
+      this.addReplyForm.email = this.addReplyForm.qq + '@qq.com'
+      this.addReplyForm.imgSrc = res.imgSrc
     },
     ...mapMutations(['changeReplyId'])
   },
@@ -142,6 +166,7 @@ export default {
   },
   mounted() {
     this.getEmailToken()
+    this.qq()
   }
 }
 </script>
@@ -181,5 +206,11 @@ a {
   height: 35px;
   float: left;
   margin-right: 8px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+img {
+  width: 100%;
+  height: 100%;
 }
 </style>

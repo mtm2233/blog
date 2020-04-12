@@ -28,10 +28,17 @@
     <hr />
     <div v-html="article.content" class="artcon"></div>
     <!-- 添加评论 -->
-    <add-reply v-if="$store.state.replyId===0"></add-reply>
+    <el-alert
+      v-if="article.isReply==='0'?true:false"
+      title="博主关闭了这篇内容的评论功能"
+      type="warning"
+      show-icon
+      :closable="false"
+    ></el-alert>
+    <add-reply v-if="$store.state.replyId===0 && article.isReply==='1'?true:false"></add-reply>
     <!-- 评论列表 -->
     <div class="replys">
-      <replys :repysList="repysList" :pName="''" :addReply="true"></replys>
+      <replys :repysList="repysList" :pName="''" :addReply="article.isReply==='0'?false:true"></replys>
     </div>
   </div>
 </template>
@@ -86,6 +93,9 @@ export default {
 }
 </script>
 <style scoped>
+#contents {
+  margin-top: 25px;
+}
 h2 {
   margin: 15px 0;
 }
@@ -96,7 +106,7 @@ h2 {
 .bottom span {
   margin-right: 15px;
 }
-.artcon{
-  margin-bottom: 85px;
+.artcon {
+  margin-bottom: 70px;
 }
 </style>

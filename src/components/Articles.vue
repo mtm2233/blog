@@ -1,5 +1,5 @@
 <template>
-  <div class="art">
+  <div id="articles">
     <!-- 轮播图 -->
     <el-carousel>
       <el-carousel-item
@@ -7,7 +7,7 @@
         :key="item.artId"
         @click.native="jumpContent(item.artId)"
       >
-        <img :src="require('../assets/image/carousel/'+item.imgSrc)" />
+        <img :src="require('../assets/image/article/'+item.imgSrc)" />
       </el-carousel-item>
     </el-carousel>
     <!-- 博客文章列表 -->
@@ -139,6 +139,9 @@ export default {
 }
 </script>
 <style scoped>
+#articles {
+  margin-top: 75px;
+}
 .el-carousel,
 img {
   cursor: pointer;

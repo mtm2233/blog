@@ -4,6 +4,7 @@ import Blog from '../views/Blog.vue'
 import Home from '../views/Home.vue'
 import Articles from '../components/Articles.vue'
 import Contents from '../components/Contents.vue'
+import Friend from '../components/Friend.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,11 @@ const routes = [
           { path: '/articles', name: 'articles', component: Articles },
           { path: '/content/:artId', name: 'contents', component: Contents }
         ]
+      },
+      {
+        path: '/friend',
+        name: 'friend',
+        component: Friend
       }
     ]
   }

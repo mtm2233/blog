@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div id="blog">
     <el-container class="home-container">
       <!--头部区域-->
       <el-header>
@@ -90,7 +90,7 @@ export default {
   background-color: white;
   z-index: 5;
 }
-#home .el-menu {
+#blog .el-menu {
   border: none;
 }
 .el-input {

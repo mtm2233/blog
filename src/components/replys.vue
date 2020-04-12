@@ -4,7 +4,8 @@
       <!-- 默认头像 -->
       <div class="user">
         <div class="userImg">
-          <svg width="100%" height="100%">
+          <img v-if="item.imgSrc" :src="require('../assets/image/qqImg/'+item.imgSrc)" />
+          <svg width="100%" height="100%" v-if="!item.imgSrc">
             <circle cx="20" cy="20" r="20" :fill="item.email|hashColor" />
             <text
               x="20"
@@ -26,9 +27,12 @@
           <p>
             <span v-if="pName">@{{pName}}</span>
             {{item.content}}
-            <a v-if="addReply" @click="changeReplyId(item.replyId)">回复</a>
             <!-- 添加评论 -->
             <add-reply v-if="addReply&&replyId==item.replyId"></add-reply>
+          </p>
+          <p>
+            <a>{{item.replyTime}}</a>
+            <a v-if="addReply" @click="changeReplyId(item.replyId)">回复</a>
           </p>
         </div>
         <replys
@@ -77,6 +81,12 @@ ul {
   height: 40px;
   float: left;
   margin-top: 10px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+img {
+  width: 100%;
+  height: 100%;
 }
 .userInfor {
   margin-left: 5px;
