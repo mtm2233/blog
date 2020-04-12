@@ -11,19 +11,31 @@
         </a>
       </el-col>
     </el-row>
-    <pre>
-      {{friendList}}
-      </pre>
+    <!-- 添加评论 -->
+    <!-- <el-alert
+      v-if="article.isReply==='0'?true:false"
+      title="博主关闭了这篇内容的评论功能"
+      type="warning"
+      show-icon
+      :closable="false"
+    ></el-alert>
+    <add-reply v-if="$store.state.replyId===0?true:false"></add-reply> -->
+    <!-- 评论列表 -->
+    <!-- <div class="replys">
+      <replys :repysList="repysList" :pName="''" :addReply="article.isReply==='0'?false:true"></replys>
+    </div> -->
   </div>
 </template>
 <script>
+// 评论组件
+// import replys from './replys.vue'
+// import addReply from './addReply.vue'
 export default {
   name: 'friend',
   data() {
     return {
       friendList: [],
-      errorGoodsImg:
-        "this.src='https://www.wikimoe.com/content/uploadfile/201710/25e41508377274.png'"
+      errorGoodsImg: `this.src='${require('../assets/image/frErr.png')}'`
     }
   },
   methods: {
@@ -33,6 +45,10 @@ export default {
       this.friendList = res.data
       console.log(res.data)
     }
+  },
+  components: {
+    // replys,
+    // addReply
   },
   mounted() {
     this.getFriends()

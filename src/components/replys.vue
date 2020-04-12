@@ -27,12 +27,12 @@
           <p>
             <span v-if="pName">@{{pName}}</span>
             {{item.content}}
-            <!-- 添加评论 -->
-            <add-reply v-if="addReply&&replyId==item.replyId"></add-reply>
           </p>
           <p>
             <a>{{item.replyTime}}</a>
             <a v-if="addReply" @click="changeReplyId(item.replyId)">回复</a>
+            <!-- 添加评论 -->
+            <add-reply v-if="addReply&&replyId==item.replyId"></add-reply>
           </p>
         </div>
         <replys

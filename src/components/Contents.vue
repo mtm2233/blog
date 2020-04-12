@@ -27,33 +27,19 @@
     </div>
     <hr />
     <div v-html="article.content" class="artcon"></div>
-    <!-- 添加评论 -->
-    <el-alert
-      v-if="article.isReply==='0'?true:false"
-      title="博主关闭了这篇内容的评论功能"
-      type="warning"
-      show-icon
-      :closable="false"
-    ></el-alert>
-    <add-reply v-if="$store.state.replyId===0 && article.isReply==='1'?true:false"></add-reply>
-    <!-- 评论列表 -->
-    <div class="replys">
-      <replys :repysList="repysList" :pName="''" :addReply="article.isReply==='0'?false:true"></replys>
-    </div>
+    <!-- 评论 -->
+    <reply :artId="$route.params.artId" :isReply="article.isReply"></reply>
   </div>
 </template>
 <script>
 // 评论组件
-import replys from './replys.vue'
-import addReply from './addReply.vue'
+import reply from './reply.vue'
 export default {
   props: ['artId'],
   data() {
     return {
       // 博客文章详情
-      article: [],
-      // 回复
-      repysList: []
+      article: []
     }
   },
   methods: {
@@ -67,16 +53,6 @@ export default {
       }
       this.article = res.data[0]
     },
-    // 获取当前文章的回复
-    async getRepysList() {
-      const { data: res } = await this.$http.get(
-        'reply/query/' + this.$route.params.artId
-      )
-      if (res.status !== 200) {
-        return this.$message.error('获取评论失败')
-      }
-      this.repysList = res.data
-    },
     // 回到上一页
     goBack() {
       this.$router.push('/articles')
@@ -84,11 +60,9 @@ export default {
   },
   mounted() {
     this.getArtById()
-    this.getRepysList()
   },
   components: {
-    replys,
-    addReply
+    reply
   }
 }
 </script>
