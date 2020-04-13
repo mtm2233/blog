@@ -23,10 +23,10 @@
           />
           <!-- 默认头像 -->
           <svg width="100%" height="100%" v-else>
-            <circle cx="17" cy="17" r="17" :fill="addReplyForm.email|hashColor" />
+            <circle cx="50%" cy="50%" r="50%" :fill="addReplyForm.email|hashColor" />
             <text
-              x="17"
-              y="17"
+              x="50%"
+              y="50%"
               fill="white"
               text-anchor="middle"
               dominant-baseline="middle"
@@ -47,7 +47,7 @@
           <el-input v-model="addReplyForm.name" @blur="qq()" placeholder="输入QQ号可快速填写"></el-input>
         </el-form-item>
         <el-form-item label="邮箱" prop="email">
-          <el-input v-model="addReplyForm.email"></el-input>
+          <el-input v-model="addReplyForm.email" @blur="clearInfo()"></el-input>
         </el-form-item>
         <el-form-item label="网址" prop="webSite">
           <el-input v-model="addReplyForm.webSite"></el-input>
@@ -159,6 +159,10 @@ export default {
       this.addReplyForm.name = res.name
       this.addReplyForm.email = this.addReplyForm.qq + '@qq.com'
       this.addReplyForm.imgSrc = res.imgSrc
+    },
+    clearInfo() {
+      this.addReplyForm.imgSrc = ''
+      this.addReplyForm.qq = ''
     },
     ...mapMutations(['changeReplyId'])
   },

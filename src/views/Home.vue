@@ -90,7 +90,7 @@ export default {
 <style scoped>
 .el-aside {
   padding-left: 20px;
-  top: 20px;
+  top: 78px;
   height: 100%;
   position: relative;
 }
@@ -98,6 +98,7 @@ export default {
   width: 270px;
   height: 85%;
   overflow-y: scroll;
+  overflow-x: hidden;
   position: fixed;
 }
 h3 {

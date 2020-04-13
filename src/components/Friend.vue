@@ -1,6 +1,6 @@
 <template>
   <div id="friend">
-    <el-row :gutter="15" v-for="item in friendList" :key="item.urlTypeId">
+    <el-row :gutter="10" v-for="item in friendList" :key="item.urlTypeId">
       <h3>#{{item.typeName}}</h3>
       <el-col :xs="12" :sm="8" :lg="6" v-for="itemChild in item.children" :key="itemChild.friendId">
         <a :href="itemChild.url" target="_blank">

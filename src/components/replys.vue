@@ -6,10 +6,10 @@
         <div class="userImg">
           <img v-if="item.imgSrc" :src="require('../assets/image/qqImg/'+item.imgSrc)" />
           <svg width="100%" height="100%" v-if="!item.imgSrc">
-            <circle cx="20" cy="20" r="20" :fill="item.email|hashColor" />
+            <circle cx="50%" cy="50%" r="50%" :fill="item.email|hashColor" />
             <text
-              x="20"
-              y="20"
+              x="50%"
+              y="50%"
               fill="white"
               text-anchor="middle"
               dominant-baseline="middle"

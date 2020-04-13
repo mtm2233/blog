@@ -26,7 +26,7 @@
       </span>
     </div>
     <hr />
-    <div v-html="article.content" class="artcon"></div>
+    <div v-html="article.content"></div>
     <!-- 评论 -->
     <reply :artId="$route.params.artId"></reply>
   </div>
@@ -69,6 +69,7 @@ export default {
 <style scoped>
 #contents {
   margin-top: 30px;
+  padding: 0 10px;
 }
 h2 {
   margin: 15px 0;
