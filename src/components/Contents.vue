@@ -1,7 +1,5 @@
 <template>
   <div id="contents">
-    <!-- 返回上一页· -->
-    <el-page-header @back="goBack" content="详情页面"></el-page-header>
     <h2>{{article.title}}</h2>
     <div class="bottom">
       <!-- 发布人 -->
@@ -52,10 +50,6 @@ export default {
         return this.$message.error('获取博客文章失败')
       }
       this.article = res.data[0]
-    },
-    // 回到上一页
-    goBack() {
-      this.$router.push('/articles')
     }
   },
   mounted() {
@@ -68,7 +62,7 @@ export default {
 </script>
 <style scoped>
 #contents {
-  margin-top: 30px;
+  margin-top: 70px;
   padding: 0 10px;
 }
 h2 {

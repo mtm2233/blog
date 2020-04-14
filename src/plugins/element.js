@@ -2,7 +2,7 @@ import Vue from 'vue'
 import {
   Container, Header, Main, Footer, Aside, Row, Col, Menu, MenuItem,
   Message, MessageBox, Input, Drawer, Carousel, CarouselItem,
-  MenuItemGroup, Submenu, Card, Pagination, Button, PageHeader,
+  MenuItemGroup, Submenu, Card, Pagination, Button,
   Form, FormItem, Alert
 } from 'element-ui'
 
@@ -24,7 +24,6 @@ Vue.use(Submenu)
 Vue.use(Card)
 Vue.use(Pagination)
 Vue.use(Button)
-Vue.use(PageHeader)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Alert)
