@@ -28,7 +28,8 @@
               placeholder="搜索关键字"
               prefix-icon="el-icon-search"
               v-model="value"
-              @blur="transfer()"
+              @change="transfer()"
+              clearable
             ></el-input>
           </el-col>
         </el-row>
@@ -37,7 +38,8 @@
       <router-view></router-view>
       <!-- 尾部区域 -->
       <el-footer>
-        <a href="http://beian.miit.gov.cn" target="_blank">ICP备案号：苏ICP备19073933号</a> | Copyright © youcann.club
+        <a href="http://beian.miit.gov.cn" target="_blank">ICP备案号：苏ICP备19073933号</a>
+        | Copyright © youcann.club
       </el-footer>
     </el-container>
     <!-- Drawer 抽屉 -->
@@ -72,6 +74,7 @@ export default {
     },
     // props 当搜索框失去焦点，传递search
     transfer() {
+      this.$router.push('/articles')
       this.changeSearch(this.value)
       this.search = this.value
     },

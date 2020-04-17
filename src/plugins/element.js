@@ -2,7 +2,7 @@ import Vue from 'vue'
 import {
   Container, Header, Main, Footer, Aside, Row, Col, Menu, MenuItem,
   Message, MessageBox, Input, Drawer, Carousel, CarouselItem,
-  MenuItemGroup, Submenu, Card, Pagination, Button,
+  MenuItemGroup, Submenu, Card, Pagination, Button, Tag,
   Form, FormItem, Alert
 } from 'element-ui'
 
@@ -27,6 +27,7 @@ Vue.use(Button)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Alert)
+Vue.use(Tag)
 
 // 全局挂载
 Vue.prototype.$message = Message

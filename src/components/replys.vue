@@ -19,11 +19,12 @@
         <!-- 用户信息 -->
         <div class="userInfor">
           {{item.name}}
-          <span
+          <!-- <span
             :class="'level level-'+ item.level"
             v-if="item.level!=='站长'"
-          >Lv {{item.level}}</span>
-          <span :class="'level level-admin'" v-else>{{item.level}}</span>
+          >Lv {{item.level}}</span>-->
+          <span :class="'level level-admin'" v-if="item.title" :title="item.supp">{{item.title}}</span>
+          <span :class="level(item.num)[0]" :title="level(item.num)[2]" v-else>{{level(item.num)[1]}}</span>
           <p>
             <span v-if="pName">@{{pName}}</span>
             {{item.content}}
@@ -57,6 +58,13 @@ export default {
     addReply
   },
   methods: {
+    level(num) {
+      if (num < 5) return ['level level-1', 'Lv 1', '评论等级 Lv.1，共有' + num + '条评论，还差' + (5 - num) + '条评论升级至 Lv.2']
+      else if (num < 15) return ['level level-2', 'Lv 2', '评论等级 Lv.2，共有' + num + '条评论，还差' + (15 - num) + '条评论升级至 Lv.3']
+      else if (num < 45) return ['level level-3', 'Lv 3', '评论等级 Lv.3，共有' + num + '条评论，还差' + (45 - num) + '条评论升级至 Lv.4']
+      else if (num < 100) return ['level level-4', 'Lv 4', '评论等级 Lv.4，共有' + num + '条评论，还差' + (100 - num) + '条评论升级至 Lv.5']
+      else return ['level level-5', 'Lv 5', '评论等级 Lv.5，共有' + num + '条评论']
+    },
     ...mapMutations(['changeReplyId'])
   },
   computed: {
@@ -110,6 +118,9 @@ a {
   font-size: 12px;
   color: #909399;
   margin-right: 5px;
+  cursor: pointer;
+}
+span {
   cursor: pointer;
 }
 </style>

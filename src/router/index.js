@@ -7,6 +7,7 @@ import Contents from '../components/Contents.vue'
 import Friend from '../components/Friend.vue'
 import Readers from '../components/Readers.vue'
 import Archiv from '../components/Archiv.vue'
+import Search from '../components/Search.vue'
 
 Vue.use(VueRouter)
 
@@ -29,7 +30,8 @@ const routes = [
       },
       { path: '/friend', name: 'friend', component: Friend },
       { path: '/readers', name: 'readers', component: Readers },
-      { path: '/archiv', name: 'archiv', component: Archiv }
+      { path: '/archiv', name: 'archiv', component: Archiv },
+      { path: '/search', name: 'search', component: Search }
     ]
   }
 ]

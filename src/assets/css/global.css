@@ -42,3 +42,7 @@ body,
 .level-admin {
     background-color: #fd5d3c;
 }
+.navTop{
+    width: 100%;
+    text-align: center;
+}

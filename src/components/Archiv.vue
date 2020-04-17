@@ -1,6 +1,21 @@
 <template>
   <div id="archiv">
-    <el-menu unique-opened router :default-active="'content/'+newArtId" active-text-color="black">
+    <div class="navTop">
+      <h2>文章归档</h2>
+      <h4>最后更新于 {{newArt.addTime[0]}}年{{newArt.addTime[1]}}月{{newArt.addTime[2]}}日</h4>
+    </div>
+    <div class="total">
+      <span v-for="item in total" :key="item.name">
+        <p>{{item.num}}+</p>
+        <p>{{item.name}}</p>
+      </span>
+    </div>
+    <el-menu
+      unique-opened
+      router
+      :default-active="'content/'+newArt.artId"
+      active-text-color="black"
+    >
       <el-submenu :index="index+''" v-for="(itemY,index) in archiv" :key="index">
         <template slot="title">
           <h2>#{{index}}年</h2>
@@ -24,7 +39,8 @@ export default {
   data() {
     return {
       archiv: {},
-      newArtId: ''
+      newArt: '',
+      total: {}
     }
   },
   methods: {
@@ -38,28 +54,36 @@ export default {
         y = item
         break
       }
-      // console.log(newArtId)
       for (const item in this.archiv[y]) {
         m = item
         break
       }
-      this.newArtId = this.archiv[y][m][0].artId
+      this.newArt = this.archiv[y][m][0]
+    },
+    async getTotal() {
+      const { data: res } = await this.$http.get('article/total')
+      if (res.status !== 200) return this.$message.error('博客数据统计获取失败')
+      this.total = res.data
     }
   },
   mounted() {
     this.getArchiv()
+    this.getTotal()
   }
 }
 </script>
 <style scoped>
 #archiv {
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-top: 50px;
+  max-width: 850px;
   padding: 30px 10px;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 50px;
+  box-sizing: border-box;
 }
 .el-menu {
-  width: 1000px;
+  border-right: 0;
+  width: 100%;
 }
 .el-menu-item span {
   color: #c1c1c1;
@@ -69,5 +93,15 @@ export default {
 }
 .el-menu-item a:hover {
   color: #fd5d3c;
+}
+.total {
+  color: #c1c1c1;
+  padding: 0 30px;
+  text-align: center;
+  font-size: 19px;
+}
+.total span {
+  display: inline-block;
+  width: 20%;
 }
 </style>

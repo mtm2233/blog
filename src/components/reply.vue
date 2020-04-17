@@ -8,10 +8,15 @@
       show-icon
       :closable="false"
     ></el-alert>
-    <add-reply v-if="$store.state.replyId===0 && isReply==='1'?true:false" :artId='artId'></add-reply>
+    <add-reply v-if="$store.state.replyId===0 && isReply==='1'?true:false" :artId="artId"></add-reply>
     <!-- 评论列表 -->
     <div class="replys">
-      <replys :repysList="repysList" :pName="''" :addReply="isReply==='0'?false:true" :artId='artId'></replys>
+      <replys
+        :repysList="repysList"
+        :pName="''"
+        :addReply="isReply==='0'?false:true"
+        :artId="artId"
+      ></replys>
     </div>
   </div>
 </template>
@@ -37,15 +42,15 @@ export default {
       }
       this.repysList = res.data
     },
-    // 获取博客文章
+    // 查看该文章的评论功能是否关闭
     async getArtById() {
       const { data: res } = await this.$http.get(
-        'article/artById/' + this.artId
+        'article/isReply/' + this.artId
       )
       if (res.status !== 200) {
-        return this.$message.error('获取博客文章失败')
+        return this.$message.error('获取评论功能信息失败')
       }
-      this.isReply = res.data[0].isReply
+      this.isReply = res.isReply
     }
   },
   components: {
@@ -61,6 +66,7 @@ export default {
 </script>
 <style scoped>
 #reply {
+  margin-top: 15px;
   width: 100%;
 }
 </style>

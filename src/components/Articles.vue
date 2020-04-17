@@ -107,6 +107,8 @@ export default {
     }
   },
   mounted() {
+    this.query.tags = this.tags
+    this.query.search = this.search
     this.getArticleList()
     this.getCarouselList()
   },
@@ -134,7 +136,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['search', 'typeId'])
+    ...mapState(['search', 'typeId', 'tags'])
   }
 }
 </script>

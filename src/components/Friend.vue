@@ -1,5 +1,9 @@
 <template>
   <div id="friend">
+    <div class="navTop">
+      <h2>友情链接</h2>
+      <h4>博主的网上邻居</h4>
+    </div>
     <el-row :gutter="10" v-for="item in friendList" :key="item.urlTypeId">
       <h3>#{{item.typeName}}</h3>
       <el-col :xs="12" :sm="8" :lg="6" v-for="itemChild in item.children" :key="itemChild.friendId">
@@ -67,7 +71,8 @@ export default {
   max-width: 1000px;
   margin: 0 auto;
   margin-top: 75px;
-  padding: 10px;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 .frChild {
   width: 80%;

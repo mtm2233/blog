@@ -1,6 +1,9 @@
 <template>
   <div id="readers">
-    <h2>读者百强榜</h2>
+    <div class="navTop">
+      <h2>读者百强榜</h2>
+      <h4>个个都是人才，说话又好听</h4>
+    </div>
     <el-row :gutter="5">
       <el-col :xs="4" :sm="3" :md="2" :lg="2" v-for="(item,index) in readersList" :key="item.email">
         <!-- 网站链接 -->
@@ -68,7 +71,8 @@ export default {
   max-width: 1000px;
   margin: 0 auto;
   margin-top: 75px;
-  padding: 10px;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 .user {
   margin-top: 5px;

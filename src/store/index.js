@@ -8,7 +8,8 @@ export default new Vuex.Store({
     // 博客文章标题
     search: '',
     typeId: '',
-    replyId: 0
+    replyId: 0,
+    tags: ''
   },
   mutations: {
     changeSearch(state, search) {
@@ -19,6 +20,9 @@ export default new Vuex.Store({
     },
     changeReplyId(state, replyId) {
       state.replyId = replyId
+    },
+    changeTags(state, tags) {
+      state.tags = tags
     }
   },
   actions: {
