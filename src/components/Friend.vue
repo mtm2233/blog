@@ -74,10 +74,6 @@ export default {
   padding: 0 15px;
   box-sizing: border-box;
 }
-.frChild {
-  width: 80%;
-  margin: 0 10%;
-}
 img {
   width: 35px;
   vertical-align: middle;
@@ -88,6 +84,7 @@ a {
 }
 .el-card {
   margin: 10px;
+  font-size: 15px;
 }
 .el-card:hover {
   color: #fd5d3c;

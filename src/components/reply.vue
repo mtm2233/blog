@@ -66,7 +66,8 @@ export default {
 </script>
 <style scoped>
 #reply {
-  margin-top: 15px;
+  margin-top: 10px;
   width: 100%;
+  box-sizing: border-box;
 }
 </style>

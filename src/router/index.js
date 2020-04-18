@@ -8,6 +8,7 @@ import Friend from '../components/Friend.vue'
 import Readers from '../components/Readers.vue'
 import Archiv from '../components/Archiv.vue'
 import Search from '../components/Search.vue'
+import Reward from '../components/Reward.vue'
 
 Vue.use(VueRouter)
 
@@ -31,7 +32,8 @@ const routes = [
       { path: '/friend', name: 'friend', component: Friend },
       { path: '/readers', name: 'readers', component: Readers },
       { path: '/archiv', name: 'archiv', component: Archiv },
-      { path: '/search', name: 'search', component: Search }
+      { path: '/search', name: 'search', component: Search },
+      { path: '/reward', name: 'reward', component: Reward }
     ]
   }
 ]

@@ -1,7 +1,7 @@
 <template>
   <div id="articles">
     <!-- 轮播图 -->
-    <el-carousel>
+    <el-carousel class="hidden-xs-only">
       <el-carousel-item
         v-for="item in carouselList"
         :key="item.artId"
@@ -51,8 +51,19 @@
       :current-page="query.pagenum"
       :page-sizes="[4, 6, 9, 12]"
       :page-size="query.pagesize"
-      layout="total, sizes, prev, pager, next, jumper"
+      layout="total,sizes, prev, pager, next, jumper"
       :total="total"
+      :pager-count="5"
+      class="hidden-xs-only"
+    ></el-pagination>
+    <el-pagination
+      class="mod"
+      @current-change="handleCurrentChange"
+      :current-page="query.pagenum"
+      :page-size="query.pagesize"
+      layout="total, prev, pager, next"
+      :total="total"
+      :pager-count="5"
     ></el-pagination>
   </div>
 </template>
@@ -142,12 +153,15 @@ export default {
 </script>
 <style scoped>
 #articles {
-  margin-top: 75px;
+  margin-top: 65px;
 }
 .el-carousel,
 img {
   cursor: pointer;
   width: 100%;
+}
+.el-carousel {
+  margin-bottom: 15px;
 }
 img {
   transition: 0.3s;
@@ -160,7 +174,7 @@ img {
 }
 .el-card {
   cursor: pointer;
-  margin-top: 24px;
+  margin-bottom: 15px;
 }
 .el-card:hover img {
   transform: scale(1.3);
@@ -177,8 +191,17 @@ img {
 .bottom span {
   margin-right: 15px;
 }
-.el-pagination {
+.el-pagination,
+.mod {
   margin-top: 25px;
   text-align: center;
+}
+.mod {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .mod {
+    display: block;
+  }
 }
 </style>

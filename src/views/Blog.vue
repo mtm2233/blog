@@ -39,7 +39,7 @@
       <!-- 尾部区域 -->
       <el-footer>
         <a href="http://beian.miit.gov.cn" target="_blank">ICP备案号：苏ICP备19073933号</a>
-        | Copyright © youcann.club
+        <br />Copyright © youcann.club
       </el-footer>
     </el-container>
     <!-- Drawer 抽屉 -->
@@ -108,7 +108,6 @@ export default {
 }
 .el-footer {
   text-align: center;
-  line-height: 60px;
 }
 .el-footer a {
   text-decoration: none;

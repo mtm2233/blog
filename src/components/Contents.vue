@@ -63,7 +63,6 @@ export default {
 <style scoped>
 #contents {
   margin-top: 70px;
-  padding: 0 10px;
 }
 h2 {
   margin: 15px 0;

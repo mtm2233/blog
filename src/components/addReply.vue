@@ -10,7 +10,7 @@
       :rules="addReplyRules"
       ref="addReplyRef"
       size="small"
-      label-width="100px"
+      label-width="60px"
     >
       <!-- 根据cookie显示用户信息 -->
       <div class="userBox" v-if="isToken">
@@ -50,7 +50,7 @@
           <el-input v-model="addReplyForm.email" @blur="clearInfo()"></el-input>
         </el-form-item>
         <el-form-item label="网址" prop="webSite">
-          <el-input v-model="addReplyForm.webSite"></el-input>
+          <el-input v-model="addReplyForm.webSite" placeholder="请加上https://"></el-input>
         </el-form-item>
       </div>
       <el-form-item label="内容" prop="content">
@@ -146,6 +146,7 @@ export default {
       this.addReplyForm.email = res.data[0].email
       this.addReplyForm.name = res.data[0].name
       this.addReplyForm.imgSrc = res.data[0].imgSrc
+      this.addReplyForm.webSite = res.data[0].webSite
       this.showUserInfo = false
       this.isToken = true
     },
@@ -182,9 +183,8 @@ hr {
   padding: 8px 0 0 10px;
 }
 #addReply {
-  padding: 0 50px;
   width: 100%;
-  padding: 10px;
+  padding: 10px 0;
 }
 #addReply .el-form-item {
   max-width: 350px;
@@ -194,7 +194,6 @@ h3 {
   margin: 0;
   font-size: 18px;
   line-height: 35px;
-  margin-bottom: 10px;
 }
 a {
   color: #fd5d3c;
@@ -204,7 +203,7 @@ a {
 }
 .userBox {
   vertical-align: middle;
-  margin: 10px 0 10px 58px;
+  margin: 10px;
 }
 .userImg {
   width: 35px;

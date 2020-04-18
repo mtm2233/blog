@@ -90,16 +90,18 @@ export default {
 <style scoped>
 .el-aside {
   padding-left: 20px;
-  top: 78px;
   height: 100%;
   position: relative;
 }
 .scrollBox {
   width: 270px;
-  height: 85%;
+  top: 88px;
+  bottom: 60px;
+  padding: 0 5px;
   overflow-y: scroll;
   overflow-x: hidden;
   position: fixed;
+  box-sizing: border-box;
 }
 h3 {
   margin: 0;
@@ -125,5 +127,9 @@ h3 {
 .el-button {
   width: 95%;
   margin: 10px 0;
+}
+ul {
+  list-style: none;
+  padding-left: 0px;
 }
 </style>

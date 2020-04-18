@@ -18,33 +18,32 @@
         </div>
         <!-- 用户信息 -->
         <div class="userInfor">
-          {{item.name}}
-          <!-- <span
-            :class="'level level-'+ item.level"
-            v-if="item.level!=='站长'"
-          >Lv {{item.level}}</span>-->
+          <a :href="item.webSite?item.webSite:'javascript:;'" target="_blank">{{item.name}}</a>
           <span :class="'level level-admin'" v-if="item.title" :title="item.supp">{{item.title}}</span>
-          <span :class="level(item.num)[0]" :title="level(item.num)[2]" v-else>{{level(item.num)[1]}}</span>
+          <span
+            :class="level(item.num)[0]"
+            :title="level(item.num)[2]"
+            v-else
+          >{{level(item.num)[1]}}</span>
           <p>
-            <span v-if="pName">@{{pName}}</span>
+            <span v-if="pName" class="pReply">@{{pName}}</span>
             {{item.content}}
           </p>
           <p>
-            <a>{{item.replyTime}}</a>
-            <a v-if="addReply" @click="changeReplyId(item.replyId)">回复</a>
+            <span class="timeSpan">{{item.replyTime}}</span>
+            <span class="repSpan" v-if="addReply" @click="changeReplyId(item.replyId)">回复</span>
             <!-- 添加评论 -->
             <add-reply v-if="addReply&&replyId==item.replyId" :artId="artId"></add-reply>
           </p>
+          <replys
+            v-if="item.children"
+            :repysList="item.children"
+            :pName="item.name"
+            :addReply="addReply"
+            :artId="artId"
+          ></replys>
         </div>
-        <replys
-          v-if="item.children"
-          :repysList="item.children"
-          :pName="item.name"
-          :addReply="addReply"
-          :artId="artId"
-        ></replys>
       </div>
-      <hr v-if="!pName" />
     </li>
   </ul>
 </template>
@@ -59,11 +58,49 @@ export default {
   },
   methods: {
     level(num) {
-      if (num < 5) return ['level level-1', 'Lv 1', '评论等级 Lv.1，共有' + num + '条评论，还差' + (5 - num) + '条评论升级至 Lv.2']
-      else if (num < 15) return ['level level-2', 'Lv 2', '评论等级 Lv.2，共有' + num + '条评论，还差' + (15 - num) + '条评论升级至 Lv.3']
-      else if (num < 45) return ['level level-3', 'Lv 3', '评论等级 Lv.3，共有' + num + '条评论，还差' + (45 - num) + '条评论升级至 Lv.4']
-      else if (num < 100) return ['level level-4', 'Lv 4', '评论等级 Lv.4，共有' + num + '条评论，还差' + (100 - num) + '条评论升级至 Lv.5']
-      else return ['level level-5', 'Lv 5', '评论等级 Lv.5，共有' + num + '条评论']
+      if (num < 5) {
+        return [
+          'level level-1',
+          'Lv 1',
+          '评论等级 Lv.1，共有' +
+            num +
+            '条评论，还差' +
+            (5 - num) +
+            '条评论升级至 Lv.2'
+        ]
+      } else if (num < 15) {
+        return [
+          'level level-2',
+          'Lv 2',
+          '评论等级 Lv.2，共有' +
+            num +
+            '条评论，还差' +
+            (15 - num) +
+            '条评论升级至 Lv.3'
+        ]
+      } else if (num < 45) {
+        return [
+          'level level-3',
+          'Lv 3',
+          '评论等级 Lv.3，共有' +
+            num +
+            '条评论，还差' +
+            (45 - num) +
+            '条评论升级至 Lv.4'
+        ]
+      } else if (num < 100) {
+        return [
+          'level level-4',
+          'Lv 4',
+          '评论等级 Lv.4，共有' +
+            num +
+            '条评论，还差' +
+            (100 - num) +
+            '条评论升级至 Lv.5'
+        ]
+      } else {
+        return ['level level-5', 'Lv 5', '评论等级 Lv.5，共有' + num + '条评论']
+      }
     },
     ...mapMutations(['changeReplyId'])
   },
@@ -73,34 +110,34 @@ export default {
 }
 </script>
 <style scoped>
-hr {
-  border: 0;
-  border-bottom: 1px solid #edf0f2;
-  padding: 8px 0 0 10px;
-}
 ul {
   list-style: none;
+  padding: 0;
+}
+.reply {
+  width: 100%;
 }
 .user {
-  float: left;
   width: 100%;
+  position: relative;
 }
 .userImg {
   width: 40px;
   height: 40px;
   float: left;
-  margin-top: 10px;
+  top: 3px;
   border-radius: 50%;
   overflow: hidden;
+  position: absolute;
 }
 img {
   width: 100%;
   height: 100%;
 }
 .userInfor {
-  margin-left: 5px;
-  float: left;
+  margin-left: 50px;
   margin-top: 10px;
+  border-bottom: 1px solid #edf0f2;
 }
 .userInfor p {
   margin: 3px 0;
@@ -109,15 +146,23 @@ img {
   vertical-align: middle;
   word-break: break-all;
 }
-.userInfor p span {
+.userInfor p .pReply {
   font-size: 12px;
   color: #eb5055;
   margin-right: 5px;
 }
 a {
+  text-decoration: none;
+  color: black;
+}
+.timeSpan,
+.repSpan {
   font-size: 12px;
   color: #909399;
   margin-right: 5px;
+  cursor: text;
+}
+.repSpan {
   cursor: pointer;
 }
 span {
