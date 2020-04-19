@@ -45,6 +45,7 @@ body,
 .navTop{
     width: 100%;
     text-align: center;
+    letter-spacing: 1px;
 }
 img{ 
     max-width:100%

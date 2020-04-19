@@ -3,7 +3,7 @@ import {
   Container, Header, Main, Footer, Aside, Row, Col, Menu, MenuItem,
   Message, MessageBox, Input, Drawer, Carousel, CarouselItem,
   MenuItemGroup, Submenu, Card, Pagination, Button, Tag,
-  Form, FormItem, Alert, Table, TableColumn
+  Form, FormItem, Alert, Table, TableColumn, Backtop, Icon
 } from 'element-ui'
 
 Vue.use(Container)
@@ -30,6 +30,8 @@ Vue.use(Alert)
 Vue.use(Tag)
 Vue.use(Table)
 Vue.use(TableColumn)
+Vue.use(Backtop)
+Vue.use(Icon)
 
 // 全局挂载
 Vue.prototype.$message = Message

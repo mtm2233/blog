@@ -37,6 +37,8 @@
       <!--页面主体区域-->
       <router-view></router-view>
       <!-- 尾部区域 -->
+      <!-- 回到首页 -->
+      <el-backtop></el-backtop>
       <el-footer>
         <a href="http://beian.miit.gov.cn" target="_blank">ICP备案号：苏ICP备19073933号</a>
         <br />Copyright © youcann.club

@@ -7,6 +7,7 @@
         :key="item.artId"
         @click.native="jumpContent(item.artId)"
       >
+        <span>{{item.title}}</span>
         <img :src="require('../assets/image/article/'+item.imgSrc)" />
       </el-carousel-item>
     </el-carousel>
@@ -162,6 +163,16 @@ img {
 }
 .el-carousel {
   margin-bottom: 15px;
+  position: relative;
+}
+.el-carousel span {
+  padding: 5px 10px;
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  color: white;
+  opacity: 0.7;
+  font-size: 20px;
 }
 img {
   transition: 0.3s;
