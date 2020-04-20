@@ -136,8 +136,11 @@ img {
 }
 .userInfor {
   margin-left: 50px;
-  margin-top: 10px;
+  padding-top: 10px;
   border-bottom: 1px solid #edf0f2;
+}
+.userInfor:hover {
+  background-color: #fafafa;
 }
 .userInfor p {
   margin: 3px 0;

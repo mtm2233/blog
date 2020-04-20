@@ -66,10 +66,13 @@
       :total="total"
       :pager-count="5"
     ></el-pagination>
+    <!-- 内容为空 -->
+    <sorry v-if="total===0"></sorry>
   </div>
 </template>
 <script>
 import { mapState } from 'vuex'
+import sorry from './sorry.vue'
 export default {
   name: 'articles',
   data() {
@@ -149,6 +152,9 @@ export default {
   },
   computed: {
     ...mapState(['search', 'typeId', 'tags'])
+  },
+  components: {
+    sorry
   }
 }
 </script>
@@ -168,10 +174,17 @@ img {
 .el-carousel span {
   padding: 5px 10px;
   position: absolute;
-  background-color: black;
+  background-image: -webkit-linear-gradient(
+    bottom,
+    transparent,
+    rgba(26, 26, 26, 0.4)
+  );
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0),
+    rgba(26, 26, 26, 0.4)
+  );
   width: 100%;
   color: white;
-  opacity: 0.7;
   font-size: 20px;
 }
 img {

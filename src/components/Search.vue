@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 export default {
   name: 'search',
   data() {
@@ -64,7 +64,18 @@ export default {
     }
   },
   mounted() {
+    this.value = this.search
     this.getTags()
+  },
+  computed: {
+    ...mapState(['search'])
+  },
+  watch: {
+    search: {
+      handler: function(newVal) {
+        this.value = newVal
+      }
+    }
   }
 }
 </script>

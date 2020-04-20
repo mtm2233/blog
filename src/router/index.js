@@ -10,6 +10,8 @@ import Archiv from '../components/Archiv.vue'
 import Search from '../components/Search.vue'
 import Reward from '../components/Reward.vue'
 import About from '../components/About.vue'
+import Album from '../components/Album.vue'
+import Pictures from '../components/Pictures.vue'
 
 Vue.use(VueRouter)
 
@@ -35,7 +37,9 @@ const routes = [
       { path: '/archiv', name: 'archiv', component: Archiv },
       { path: '/search', name: 'search', component: Search },
       { path: '/reward', name: 'reward', component: Reward },
-      { path: '/about', name: 'about', component: About }
+      { path: '/about', name: 'about', component: About },
+      { path: '/album', name: 'album', component: Album },
+      { path: '/pictures/:albId', name: 'pictures', component: Pictures }
     ]
   }
 ]

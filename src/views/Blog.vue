@@ -30,6 +30,7 @@
               v-model="value"
               @change="transfer()"
               clearable
+              :disabled="!($route.path==='/articles'||$route.path==='/album'||($route.path.slice(0,-2))==='/pictures')"
             ></el-input>
           </el-col>
         </el-row>
@@ -53,7 +54,7 @@
   </div>
 </template>
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 export default {
   name: 'blog',
   data() {
@@ -76,13 +77,23 @@ export default {
     },
     // props 当搜索框失去焦点，传递search
     transfer() {
-      this.$router.push('/articles')
+      // this.$router.push('/articles')
       this.changeSearch(this.value)
-      this.search = this.value
     },
     ...mapMutations(['changeSearch'])
   },
+  computed: {
+    ...mapState(['search'])
+  },
+  watch: {
+    search: {
+      handler: function(newVal) {
+        this.value = newVal
+      }
+    }
+  },
   mounted() {
+    this.value = this.search
     this.getNav()
   }
 }
