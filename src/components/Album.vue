@@ -6,7 +6,7 @@
         <el-card :body-style="{ padding: '0px' }" @click.native="jumpPic(item.albumId)">
           <!-- 图片 -->
           <div class="imgBox">
-            <img :src="require('../assets/image/album/'+item.imgSrc)" :title="item.content" />
+            <img :src="'https://api.youcann.club/img/'+item.imgSrc" :title="item.content" />
           </div>
           <!-- 大致信息 -->
           <div style="padding: 10px;">
@@ -113,7 +113,7 @@ img {
   margin-bottom: 15px;
 }
 .el-card:hover img {
-  transform: scale(1.3);
+  transform: scale(1.1);
 }
 .title {
   font-size: 18px;

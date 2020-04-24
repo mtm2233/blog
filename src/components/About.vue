@@ -7,7 +7,7 @@
     <h2>个人简介</h2>
     <div class="user">
       <div class="img">
-        <img src="../assets/image/qqImg/2541817610@qq.com.jpg" />
+        <img src="../assets/img/eyJhbGciOi.jpg" />
       </div>
       <h3>YouCan</h3>
       <p>1. 精通C、PHP、js、Node等语言 Hello world 的编写</p>

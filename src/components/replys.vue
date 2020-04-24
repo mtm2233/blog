@@ -4,7 +4,10 @@
       <!-- 默认头像 -->
       <div class="user">
         <div class="userImg">
-          <img v-if="item.imgSrc" :src="require('../assets/image/qqImg/'+item.imgSrc)" />
+          <img
+            v-if="item.imgSrc"
+            :src="/^http/i.test(item.imgSrc)?item.imgSrc:'https://api.youcann.club/img/'+item.imgSrc"
+          />
           <svg width="100%" height="100%" v-if="!item.imgSrc">
             <circle cx="50%" cy="50%" r="50%" :fill="item.email|hashColor" />
             <text

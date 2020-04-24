@@ -11,7 +11,7 @@
           <div class="user">
             <!-- 头像 -->
             <div class="userImg">
-              <img v-if="item.imgSrc" :src="require('../assets/image/qqImg/'+item.imgSrc)" />
+              <img v-if="item.imgSrc" :src="'https://api.youcann.club/img/'+item.imgSrc" />
               <svg width="100%" height="100%" v-if="!item.imgSrc">
                 <rect width="100%" height="100%" :fill="item.email|hashColor" />
                 <text

@@ -18,8 +18,8 @@
         <div class="userImg">
           <!-- qq头像 -->
           <img
-            v-if="addReplyForm.imgSrc&&addReplyForm.imgSrc===addReplyForm.email+'.jpg'"
-            :src="require('../assets/image/qqImg/'+addReplyForm.imgSrc)"
+            v-if="addReplyForm.imgSrc"
+            :src="/^http/i.test(addReplyForm.imgSrc)?addReplyForm.imgSrc:'https://api.youcann.club/img/'+addReplyForm.imgSrc"
           />
           <!-- 默认头像 -->
           <svg width="100%" height="100%" v-else>

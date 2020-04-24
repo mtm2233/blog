@@ -14,7 +14,7 @@ import 'element-ui/lib/theme-chalk/display.css'
 import { setCookie, getCookie, delCookie } from './assets/js/cookie.js'
 Vue.prototype.$http = axios
 // axios根路径
-axios.defaults.baseURL = 'http://localhost:2541/api/'
+axios.defaults.baseURL = 'https://api.youcann.club/'
 Vue.prototype.$cookieStore = { setCookie, getCookie, delCookie }
 // 默认头像的颜色
 Vue.filter('hashColor', function(email) {

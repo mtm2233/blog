@@ -6,7 +6,7 @@
         <el-row type="flex" class="row-bg" justify="space-between">
           <el-col :xs="20" :sm="5">
             <!-- logo -->
-            <img src="../assets/image/logo.png" />
+            <img src="../assets/img/logo.png" />
           </el-col>
           <!-- 导航栏 -->
           <el-col :sm="19" :md="15" class="hidden-xs-only">
@@ -41,7 +41,7 @@
       <!-- 回到首页 -->
       <el-backtop></el-backtop>
       <el-footer>
-        <a href="http://beian.miit.gov.cn" target="_blank">ICP备案号：苏ICP备19073933号</a>
+        <a href="http://beian.miit.gov.cn" target="_blank">ICP备案号：苏ICP备19073933号-1</a>
         <br />Copyright © youcann.club
       </el-footer>
     </el-container>

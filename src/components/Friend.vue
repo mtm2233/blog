@@ -32,8 +32,8 @@
       <h4>本站信息：</h4>
       <p>名称：梦在此</p>
       <p>简介：谨记每天要做的事！</p>
-      <p>连接：https://www.youcann.club/</p>
-      <p>头像：https://www.gravatar.com/avatar/fbb31d99a24cf9a56c48b44dd0797d22?s=400&d=mm&r=g(改)</p>
+      <p>连接：https://youcann.club/</p>
+      <p>头像：https://api.youcann.club/img/favicon.ico/</p>
     </div>
     <!-- 评论 -->
     <reply artId="2009"></reply>
@@ -47,7 +47,7 @@ export default {
   data() {
     return {
       friendList: [],
-      errorGoodsImg: `this.src='${require('../assets/image/frErr.png')}'`
+      errorGoodsImg: `this.src='${require('../assets/img/frErr.png')}'`
     }
   },
   methods: {

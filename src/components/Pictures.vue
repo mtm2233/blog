@@ -4,8 +4,8 @@
       <el-image
         v-for="item in picList"
         :key="item.imgId"
-        :src="require('../assets/image/album/'+item.imgSrc)"
-        :preview-src-list="[require('../assets/image/album/'+item.imgSrc)]"
+        :src="'https://api.youcann.club/img/'+item.imgSrc"
+        :preview-src-list="['https://api.youcann.club/img/'+item.imgSrc]"
         :alt="item.content"
         :title="item.content"
         lazy

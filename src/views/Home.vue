@@ -36,7 +36,7 @@
           </el-menu>
           <!-- 作品集 -->
           <h3>作品集</h3>
-          <el-button type="info" plain>点击进入</el-button>
+          <a href="https://works.youcann.club" target="_blank"><el-button type="info" plain>点击进入</el-button></a>
           <!-- 最新评论 -->
           <h3>最新评论</h3>
           <replys :repysList="NewReplyList" :pName="''" :addReply="false"></replys>
