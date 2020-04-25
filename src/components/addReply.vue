@@ -19,7 +19,7 @@
           <!-- qq头像 -->
           <img
             v-if="addReplyForm.imgSrc"
-            :src="/^http/i.test(addReplyForm.imgSrc)?addReplyForm.imgSrc:'https://api.youcann.club/img/'+addReplyForm.imgSrc"
+            :src="addReplyForm.imgSrc"
           />
           <!-- 默认头像 -->
           <svg width="100%" height="100%" v-else>
@@ -51,6 +51,9 @@
         </el-form-item>
         <el-form-item label="网址" prop="webSite">
           <el-input v-model="addReplyForm.webSite" placeholder="请加上https://"></el-input>
+        </el-form-item>
+        <el-form-item label="头像" prop="webSite">
+          <el-input v-model="addReplyForm.imgSrc" placeholder="请加上https://"></el-input>
         </el-form-item>
       </div>
       <el-form-item label="内容" prop="content">
