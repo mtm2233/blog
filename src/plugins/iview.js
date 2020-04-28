@@ -2,7 +2,8 @@ import Vue from 'vue'
 import {
   Button, Form, FormItem, Input, Icon, Message,
   Layout, Header, Content, Footer, Sider, Menu,
-  Submenu, MenuItem, Table, Avatar, Page, Modal
+  Submenu, MenuItem, Table, Avatar, Page, Modal,
+  Select, Option, Switch
 } from 'view-design'
 
 import 'view-design/dist/styles/iview.css'
@@ -26,3 +27,6 @@ Vue.component('Table', Table)
 Vue.component('Avatar', Avatar)
 Vue.component('Page', Page)
 Vue.component('Modal', Modal)
+Vue.component('Select', Select)
+Vue.component('Option', Option)
+Vue.component('i-switch', Switch)

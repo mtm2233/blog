@@ -117,9 +117,6 @@ export default {
     .btns {
       text-align: right;
     }
-    .ivu-btn {
-      margin: 0 6px;
-    }
   }
 }
 </style>

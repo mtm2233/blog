@@ -5,6 +5,7 @@ const Login = () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
 const Home = () => import(/* webpackChunkName: "home-welcome" */ '../views/Home.vue')
 const Welcome = () => import(/* webpackChunkName: "home-welcome" */ '../views/Welcome.vue')
 const User = () => import(/* webpackChunkName: "user" */ '../components/User.vue')
+const Friend = () => import(/* webpackChunkName: "friend" */ '../components/Friend.vue')
 
 Vue.use(VueRouter)
 
@@ -17,7 +18,8 @@ const routes = [
     component: Home,
     children: [
       { path: '/', name: 'welcome', component: Welcome },
-      { path: '/user', name: 'user', component: User }
+      { path: '/user', name: 'user', component: User },
+      { path: '/friend', name: 'friend', component: Friend }
     ]
   }
 ]

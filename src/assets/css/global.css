@@ -8,3 +8,12 @@ body,
 .ivu-layout-sider-zero-width-trigger{
     z-index: 5;
 }
+/* 分页居中 */
+.ivu-page {
+    margin-top: 15px;
+    text-align: center;
+}
+/* 按钮 */
+.ivu-btn {
+    margin: 0 10px;
+}

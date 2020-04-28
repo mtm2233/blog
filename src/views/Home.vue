@@ -14,10 +14,10 @@
             :active-name="this.$route.path"
             theme="light"
             width="auto"
-            :open-names="['1']"
+            :open-names="[menu[this.$route.path]]"
             accordion
           >
-            <Submenu name="1">
+            <Submenu name="2">
               <template slot="title">
                 <Icon type="ios-contacts" />用户管理
               </template>
@@ -93,10 +93,23 @@ export default {
   name: 'Home',
   data() {
     return {
-      isCollapsed: false
+      isCollapsed: false,
+      // 默认展开
+      menu: {
+        '/user': '2',
+        '/friend': '3',
+        '/album': '4',
+        '/pictures': '4',
+        '/reward': '5',
+        '/articles': '6',
+        '/tags': '6',
+        '/reply': '6',
+        '/type': '6'
+      }
     }
   },
   methods: {
+    // 退出
     exit() {
       window.sessionStorage.clear()
       this.$router.push('/login')

@@ -1,5 +1,14 @@
 <template>
   <div class="user">
+    <!-- 查询框 -->
+    <Input
+      search
+      enter-button
+      placeholder="请输入用户昵称"
+      style="width: 300px"
+      @on-search="getUserList"
+      v-model="queryForm.search"
+    ></Input>
     <!-- table表格 -->
     <Table border :columns="columns" :data="userList" stripe>
       <template slot-scope="{ row }" slot="imgsrc">
@@ -66,7 +75,7 @@ export default {
           title: '操作',
           slot: 'action',
           align: 'center',
-          width: 100,
+          width: 140,
           fixed: 'right'
         }
       ],
@@ -127,11 +136,10 @@ export default {
 }
 </script>
 <style scoped>
-.ivu-page {
-  margin-top: 15px;
-  text-align: center;
-}
 .ivu-table-wrapper {
-  max-width: 1092px;
+  max-width: 1132px;
+}
+.ivu-input-wrapper {
+  margin-bottom: 15px;
 }
 </style>
