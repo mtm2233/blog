@@ -136,7 +136,8 @@ export default {
 }
 </script>
 <style scoped>
-.ivu-table-wrapper {
+.ivu-table-wrapper,
+.ivu-page {
   max-width: 1132px;
 }
 .ivu-input-wrapper {

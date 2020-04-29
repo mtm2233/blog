@@ -17,3 +17,11 @@ body,
 .ivu-btn {
     margin: 0 10px;
 }
+
+/* form upload */
+.uploadImg {
+    height: 33px;
+}
+.upload {
+    margin: 0;
+}

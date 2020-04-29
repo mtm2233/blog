@@ -32,6 +32,10 @@
         <!-- 头像 -->
         <Avatar v-if="row.icon" :src="row.icon" />
       </template>
+      <!-- url -->
+      <template slot-scope="{ row }" slot="url">
+        <a :href="row.url" target="_brank">{{row.url}}</a>
+      </template>
       <template slot-scope="{ row }" slot="addtime">{{row.addtime|timefilters}}</template>
       <template slot-scope="{ row }" slot="display">
         <i-switch
@@ -56,12 +60,12 @@
       @on-page-size-change="changePagesize"
     />
     <!-- 添加友链对话框 -->
-    <Modal v-model="addModal" title="添加友链" @on-ok="addFlink">
-      <Form :model="addFlinkForm" :label-width="80">
-        <FormItem label="icon">
+    <Modal v-model="addModal" title="添加友链" @on-ok="addFlink" @on-cancel="resetForm">
+      <Form :model="addFlinkForm" :label-width="80" ref="addFlinkFormRef">
+        <FormItem label="icon" prop="icon">
           <Input v-model="addFlinkForm.icon"></Input>
         </FormItem>
-        <FormItem label="分类">
+        <FormItem label="分类" prop="urlTypeId">
           <Select v-model="addFlinkForm.urlTypeId" style="width:200px" placeholder="请选择友链分类">
             <Option
               v-for="item in flinkType"
@@ -70,13 +74,13 @@
             >{{ item.typeName }}</Option>
           </Select>
         </FormItem>
-        <FormItem label="url">
+        <FormItem label="url" prop="url">
           <Input v-model="addFlinkForm.url"></Input>
         </FormItem>
-        <FormItem label="名字">
+        <FormItem label="名字" prop="name">
           <Input v-model="addFlinkForm.name"></Input>
         </FormItem>
-        <FormItem label="描述">
+        <FormItem label="描述" prop="descript">
           <Input v-model="addFlinkForm.descript"></Input>
         </FormItem>
       </Form>
@@ -103,7 +107,7 @@ export default {
       total: 0,
       columns: [
         { title: 'icon', slot: 'icon', width: 70, fixed: 'left' },
-        { title: 'url', key: 'url', width: 230 },
+        { title: 'url', slot: 'url', width: 230 },
         { title: '标题', key: 'name', width: 200 },
         { title: '描述', key: 'descript', width: 260 },
         { title: '创建时间', slot: 'addtime', width: 230 },
@@ -173,6 +177,10 @@ export default {
       if (res.status !== 201) return this.$message.error('友链添加失败')
       this.getFlinkList()
       return this.$message.success('友链添加成功')
+    },
+    // 关闭对话框重置表单
+    resetForm() {
+      this.$refs.addFlinkFormRef.resetFields()
     }
   },
   mounted() {
@@ -185,7 +193,8 @@ export default {
 .selectSearch {
   margin: 15px 0;
 }
-.ivu-table-wrapper {
+.ivu-table-wrapper,
+.ivu-page {
   max-width: 1143px;
 }
 </style>

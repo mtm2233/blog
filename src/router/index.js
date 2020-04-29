@@ -6,6 +6,8 @@ const Home = () => import(/* webpackChunkName: "home-welcome" */ '../views/Home.
 const Welcome = () => import(/* webpackChunkName: "home-welcome" */ '../views/Welcome.vue')
 const User = () => import(/* webpackChunkName: "user" */ '../components/User.vue')
 const Friend = () => import(/* webpackChunkName: "friend" */ '../components/Friend.vue')
+const Album = () => import(/* webpackChunkName: "album-pictures" */ '../components/Album.vue')
+const Pictures = () => import(/* webpackChunkName: "album-pictures" */ '../components/Pictures.vue')
 
 Vue.use(VueRouter)
 
@@ -19,7 +21,9 @@ const routes = [
     children: [
       { path: '/', name: 'welcome', component: Welcome },
       { path: '/user', name: 'user', component: User },
-      { path: '/friend', name: 'friend', component: Friend }
+      { path: '/friend', name: 'friend', component: Friend },
+      { path: '/album', name: 'album', component: Album },
+      { path: '/pictures', name: 'pictures', component: Pictures }
     ]
   }
 ]

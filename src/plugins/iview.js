@@ -3,7 +3,7 @@ import {
   Button, Form, FormItem, Input, Icon, Message,
   Layout, Header, Content, Footer, Sider, Menu,
   Submenu, MenuItem, Table, Avatar, Page, Modal,
-  Select, Option, Switch
+  Select, Option, Switch, Upload
 } from 'view-design'
 
 import 'view-design/dist/styles/iview.css'
@@ -30,3 +30,4 @@ Vue.component('Modal', Modal)
 Vue.component('Select', Select)
 Vue.component('Option', Option)
 Vue.component('i-switch', Switch)
+Vue.component('Upload', Upload)
