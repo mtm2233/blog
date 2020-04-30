@@ -181,6 +181,7 @@ export default {
       )
       if (res.status !== 201) return this.$message.error('图片添加失败')
       this.getPicList()
+      this.$refs.addPicFormRef.resetFields()
       return this.$message.success('图片添加成功')
     },
     // 关闭对话框重置表单

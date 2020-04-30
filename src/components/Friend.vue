@@ -105,6 +105,7 @@ export default {
       },
       // 友链总条数
       total: 0,
+      // table配置
       columns: [
         { title: 'icon', slot: 'icon', width: 70, fixed: 'left' },
         { title: 'url', slot: 'url', width: 230 },
@@ -176,6 +177,7 @@ export default {
       )
       if (res.status !== 201) return this.$message.error('友链添加失败')
       this.getFlinkList()
+      this.$refs.addFlinkFormRef.resetFields()
       return this.$message.success('友链添加成功')
     },
     // 关闭对话框重置表单

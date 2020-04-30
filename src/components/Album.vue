@@ -139,6 +139,7 @@ export default {
       )
       if (res.status !== 201) return this.$message.error('相册创建失败')
       this.getAlbumList()
+      this.$refs.addAlbumFormRef.resetFields()
       return this.$message.success('相册创建成功')
     },
     // 关闭对话框重置表单

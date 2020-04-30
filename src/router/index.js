@@ -8,6 +8,7 @@ const User = () => import(/* webpackChunkName: "user" */ '../components/User.vue
 const Friend = () => import(/* webpackChunkName: "friend" */ '../components/Friend.vue')
 const Album = () => import(/* webpackChunkName: "album-pictures" */ '../components/Album.vue')
 const Pictures = () => import(/* webpackChunkName: "album-pictures" */ '../components/Pictures.vue')
+const Reward = () => import(/* webpackChunkName: "reward" */ '../components/Reward.vue')
 
 Vue.use(VueRouter)
 
@@ -23,7 +24,8 @@ const routes = [
       { path: '/user', name: 'user', component: User },
       { path: '/friend', name: 'friend', component: Friend },
       { path: '/album', name: 'album', component: Album },
-      { path: '/pictures', name: 'pictures', component: Pictures }
+      { path: '/pictures', name: 'pictures', component: Pictures },
+      { path: '/reward', name: 'reward', component: Reward }
     ]
   }
 ]
