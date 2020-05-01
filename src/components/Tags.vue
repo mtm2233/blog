@@ -1,7 +1,16 @@
 <template>
   <div class="tags">
-    <!-- 添加友链 -->
-    <Button type="primary" @click="addModal=true">添加友链</Button>
+    <!-- 查询框 -->
+    <Input
+      search
+      enter-button
+      placeholder="请输入标签名称"
+      style="width: 300px"
+      @on-search="getTagsList()"
+      v-model="queryTagsForm.search"
+    ></Input>
+    <!-- 添加标签 -->
+    <Button type="primary" @click="addModal=true">添加标签</Button>
     <!-- table表格 -->
     <Table border :columns="columns" :data="tagsList" stripe>
       <template slot-scope="{ row }" slot="addtime">{{row.addtime|timefilters}}</template>
@@ -36,6 +45,7 @@ export default {
     return {
       // 标签查询条件
       queryTagsForm: {
+        search: '',
         pagesize: 5,
         pagenum: 1
       },
@@ -111,6 +121,6 @@ export default {
 </script>
 <style scoped>
 .ivu-btn {
-  margin: 0 0 10px 0;
+  margin: 10px 0;
 }
 </style>

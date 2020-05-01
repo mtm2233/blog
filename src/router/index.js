@@ -12,6 +12,7 @@ const Reward = () => import(/* webpackChunkName: "reward" */ '../components/Rewa
 const Articles = () => import(/* webpackChunkName: "articles" */ '../components/Articles.vue')
 const Tags = () => import(/* webpackChunkName: "tags" */ '../components/Tags.vue')
 const Type = () => import(/* webpackChunkName: "type" */ '../components/Type.vue')
+const Content = () => import(/* webpackChunkName: "content" */ '../components/Content.vue')
 
 Vue.use(VueRouter)
 
@@ -31,7 +32,8 @@ const routes = [
       { path: '/reward', name: 'reward', component: Reward },
       { path: '/articles', name: 'articles', component: Articles },
       { path: '/tags', name: 'tags', component: Tags },
-      { path: '/type', name: 'type', component: Type }
+      { path: '/type', name: 'type', component: Type },
+      { path: '/content/:artId', name: 'contents', component: Content }
     ]
   }
 ]

@@ -5,7 +5,12 @@ import axios from 'axios'
 import './plugins/iview.js'
 import './assets/css/global.css'
 import { LoadingBar } from 'view-design'
-
+// 富文本编辑器
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+Vue.use(VueQuillEditor)
 // 请求拦截器 携带login_token
 // 拦截时，显示进度条
 axios.interceptors.request.use(config => {
