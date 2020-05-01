@@ -6,9 +6,12 @@ const Home = () => import(/* webpackChunkName: "home-welcome" */ '../views/Home.
 const Welcome = () => import(/* webpackChunkName: "home-welcome" */ '../views/Welcome.vue')
 const User = () => import(/* webpackChunkName: "user" */ '../components/User.vue')
 const Friend = () => import(/* webpackChunkName: "friend" */ '../components/Friend.vue')
-const Album = () => import(/* webpackChunkName: "album-pictures" */ '../components/Album.vue')
-const Pictures = () => import(/* webpackChunkName: "album-pictures" */ '../components/Pictures.vue')
+const Album = () => import(/* webpackChunkName: "album" */ '../components/Album.vue')
+const Pictures = () => import(/* webpackChunkName: "pictures" */ '../components/Pictures.vue')
 const Reward = () => import(/* webpackChunkName: "reward" */ '../components/Reward.vue')
+const Articles = () => import(/* webpackChunkName: "articles" */ '../components/Articles.vue')
+const Tags = () => import(/* webpackChunkName: "tags" */ '../components/Tags.vue')
+const Type = () => import(/* webpackChunkName: "type" */ '../components/Type.vue')
 
 Vue.use(VueRouter)
 
@@ -25,7 +28,10 @@ const routes = [
       { path: '/friend', name: 'friend', component: Friend },
       { path: '/album', name: 'album', component: Album },
       { path: '/pictures', name: 'pictures', component: Pictures },
-      { path: '/reward', name: 'reward', component: Reward }
+      { path: '/reward', name: 'reward', component: Reward },
+      { path: '/articles', name: 'articles', component: Articles },
+      { path: '/tags', name: 'tags', component: Tags },
+      { path: '/type', name: 'type', component: Type }
     ]
   }
 ]
