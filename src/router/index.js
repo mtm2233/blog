@@ -13,6 +13,7 @@ const Articles = () => import(/* webpackChunkName: "articles" */ '../components/
 const Tags = () => import(/* webpackChunkName: "tags" */ '../components/Tags.vue')
 const Type = () => import(/* webpackChunkName: "type" */ '../components/Type.vue')
 const Content = () => import(/* webpackChunkName: "content" */ '../components/Content.vue')
+const Reply = () => import(/* webpackChunkName: "reply" */ '../components/Reply.vue')
 
 Vue.use(VueRouter)
 
@@ -33,7 +34,8 @@ const routes = [
       { path: '/articles', name: 'articles', component: Articles },
       { path: '/tags', name: 'tags', component: Tags },
       { path: '/type', name: 'type', component: Type },
-      { path: '/content/:artId', name: 'contents', component: Content }
+      { path: '/content/:artId', name: 'contents', component: Content },
+      { path: '/reply', name: 'reply', component: Reply }
     ]
   }
 ]
