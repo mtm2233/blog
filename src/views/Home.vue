@@ -3,8 +3,23 @@
     <Layout>
       <Header>
         <span>
-          <!-- <img src="../assets/img/logo.png" /> -->
+          <img src="../assets/img/logo.png" />
         </span>
+        <Breadcrumb v-if="this.$route.path.slice(0,8)!=='/content'">
+          <BreadcrumbItem to="/home">Home</BreadcrumbItem>
+          <BreadcrumbItem>{{bread[this.$route.path].pat}}</BreadcrumbItem>
+          <BreadcrumbItem>{{bread[this.$route.path].val}}</BreadcrumbItem>
+        </Breadcrumb>
+        <Breadcrumb v-else-if="this.$route.path.slice(0,10)==='/content/0'">
+          <BreadcrumbItem to="/home">Home</BreadcrumbItem>
+          <BreadcrumbItem>文章管理</BreadcrumbItem>
+          <BreadcrumbItem>发布文章</BreadcrumbItem>
+        </Breadcrumb>
+        <Breadcrumb v-else>
+          <BreadcrumbItem to="/home">Home</BreadcrumbItem>
+          <BreadcrumbItem>文章管理</BreadcrumbItem>
+          <BreadcrumbItem>编辑文章</BreadcrumbItem>
+        </Breadcrumb>
         <Button @click="exit">退出</Button>
       </Header>
       <Layout>
@@ -105,6 +120,19 @@ export default {
         '/tags': '6',
         '/reply': '6',
         '/type': '6'
+      },
+      bread: {
+        '/home': { pat: 'Home', val: 'Welcome' },
+        '/user': { pat: '用户管理', val: '用户列表' },
+        '/friend': { pat: '友链管理', val: '友链列表' },
+        '/album': { pat: '相册管理', val: '相册列表' },
+        '/pictures': { pat: '相册管理', val: '图片列表' },
+        '/reward': { pat: '赞助管理', val: '赞助列表' },
+        '/articles': { pat: '文章管理', val: '文章列表' },
+        '/tags': { pat: '文章管理', val: '标签列表' },
+        '/reply': { pat: '文章管理', val: '评论列表' },
+        '/type': { pat: '文章管理', val: '分类列表' },
+        '/content/0': { pat: '文章管理', val: '发布文章' }
       }
     }
   },
@@ -118,6 +146,13 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+html,
+body,
+#app {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
 .home,
 .ivu-layout {
   height: 100%;
@@ -143,5 +178,13 @@ export default {
 .ivu-layout-content {
   padding: 10px;
   box-sizing: border-box;
+}
+img {
+  float: left;
+}
+.ivu-breadcrumb {
+  max-width: 350px;
+  float: left;
+  margin-left: 55px;
 }
 </style>

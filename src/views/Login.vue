@@ -79,7 +79,7 @@ export default {
         )
         if (res.status !== 200) return this.$message.error('登陆失败')
         this.$message.success('登陆成功')
-        window.sessionStorage.setItem('login_token', res.login_token)
+        window.sessionStorage.setItem('logintoken', res.logintoken)
         this.$router.push('/home')
       })
     }

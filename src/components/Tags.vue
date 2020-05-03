@@ -14,6 +14,9 @@
     <!-- table表格 -->
     <Table border :columns="columns" :data="tagsList" stripe>
       <template slot-scope="{ row }" slot="addtime">{{row.addtime|timefilters}}</template>
+      <template slot-scope="{ row }" slot="action">
+        <Button type="primary" size="small" style="margin-right: 5px" @click="editTags(row)">编辑</Button>
+      </template>
     </Table>
     <!-- 分页 -->
     <Page
@@ -28,11 +31,19 @@
       @on-change="changePagenum"
       @on-page-size-change="changePagesize"
     />
-    <!-- 添加友链对话框 -->
+    <!-- 添加标签对话框 -->
     <Modal v-model="addModal" title="添加标签" @on-ok="addTags" @on-cancel="resetForm">
       <Form :model="addTagsForm" :label-width="80" ref="addTagsFormRef" :rules="addTagsRule">
         <FormItem label="标签名" prop="tagName">
           <Input v-model="addTagsForm.tagName"></Input>
+        </FormItem>
+      </Form>
+    </Modal>
+    <!-- 编辑标签对话框 -->
+    <Modal v-model="editModal" title="编辑标签" @on-ok="editTagsOK">
+      <Form :model="editTagsForm" :label-width="80" ref="editTagsFormRef" :rules="addTagsRule">
+        <FormItem label="标签名" prop="tagName">
+          <Input v-model="editTagsForm.tagName"></Input>
         </FormItem>
       </Form>
     </Modal>
@@ -57,12 +68,24 @@ export default {
       // Table配置
       columns: [
         { title: '标题', key: 'tagName' },
-        { title: '创建时间', slot: 'addtime' }
+        { title: '创建时间', slot: 'addtime' },
+        {
+          title: '操作',
+          slot: 'action',
+          align: 'center',
+          width: 100
+        }
       ],
       // 添加标签
       addTagsForm: {
         tagName: ''
       },
+      // 编辑标签
+      editTagsForm: {
+        tagName: '',
+        tagId: ''
+      },
+      editModal: false,
       // 效验规则
       addTagsRule: {
         tagName: [
@@ -112,6 +135,25 @@ export default {
     // 关闭对话框重置表单
     resetForm() {
       this.$refs.addTagsFormRef.resetFields()
+    },
+    // 点击编辑按钮
+    editTags(row) {
+      this.editModal = true
+      this.editTagsForm.tagName = row.tagName
+      this.editTagsForm.tagId = row.tagId
+    },
+    // 确认编辑
+    async editTagsOK() {
+      this.$refs.editTagsFormRef.validate(async val => {
+        if (!val) return this.$message.error('请检查表单是否填写完整')
+        const { data: res } = await this.$http.post(
+          'back/tags/edit',
+          this.editTagsForm
+        )
+        if (res.status !== 201) return this.$message.error('标签编辑失败')
+        this.getTagsList()
+        return this.$message.success('标签编辑成功')
+      })
     }
   },
   mounted() {

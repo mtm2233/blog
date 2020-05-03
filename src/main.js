@@ -5,17 +5,17 @@ import axios from 'axios'
 import './plugins/iview.js'
 import './assets/css/global.css'
 import { LoadingBar } from 'view-design'
-// 富文本编辑器
+// 引入富文本编译器
 import VueQuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 Vue.use(VueQuillEditor)
-// 请求拦截器 携带login_token
+// 请求拦截器 携带logintoken
 // 拦截时，显示进度条
 axios.interceptors.request.use(config => {
   LoadingBar.start()
-  config.headers.login_token = window.sessionStorage.getItem('login_token')
+  config.headers.logintoken = window.sessionStorage.getItem('logintoken')
   // 在最后必须return config
   return config
 })
@@ -79,7 +79,7 @@ Vue.filter('hashColor', function (email) {
 
 Vue.prototype.$http = axios
 // axios根路径
-axios.defaults.baseURL = 'http://localhost:2541/'
+axios.defaults.baseURL = 'https://api.youcann.club/'
 
 Vue.config.productionTip = false
 new Vue({

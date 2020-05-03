@@ -27,7 +27,7 @@
       style="width:200px"
       clearable
       @on-change="getArtList()"
-      placeholder="请选择分类"
+      placeholder="请选择标签"
     >
       <Option v-for="item in artTagsList" :value="item.tagName" :key="item.tagId">{{ item.tagName }}</Option>
     </Select>

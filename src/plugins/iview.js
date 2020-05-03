@@ -3,7 +3,8 @@ import {
   Button, Form, FormItem, Input, Icon, Message,
   Layout, Header, Content, Footer, Sider, Menu,
   Submenu, MenuItem, Table, Avatar, Page, Modal,
-  Select, Option, Switch, Upload
+  Select, Option, Switch, Upload, CheckboxGroup,
+  Checkbox, Breadcrumb, BreadcrumbItem
 } from 'view-design'
 
 import 'view-design/dist/styles/iview.css'
@@ -31,3 +32,7 @@ Vue.component('Select', Select)
 Vue.component('Option', Option)
 Vue.component('i-switch', Switch)
 Vue.component('Upload', Upload)
+Vue.component('CheckboxGroup', CheckboxGroup)
+Vue.component('Checkbox', Checkbox)
+Vue.component('Breadcrumb', Breadcrumb)
+Vue.component('BreadcrumbItem', BreadcrumbItem)

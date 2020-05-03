@@ -32,6 +32,9 @@
         />
       </template>
       <template slot-scope="{ row }" slot="addTime">{{row.addtime|timefilters}}</template>
+      <template slot-scope="{ row }" slot="action">
+        <Button type="primary" size="small" style="margin-right: 5px" @click="editPic(row)">编辑</Button>
+      </template>
     </Table>
     <!-- 分页 -->
     <Page
@@ -50,14 +53,15 @@
     <Modal v-model="addModal" title="添加相册" @on-ok="addPic" @on-cancel="resetForm">
       <Form :model="addPicForm" :label-width="80" ref="addPicFormRef">
         <FormItem label="上传图片" class="uploadImg">
-          <!-- https://api.youcann.club/ -->
           <!-- 上传图片 -->
           <Upload
-            action="http://127.0.0.1:2541/img/add"
+            action="https://api.youcann.club/img/add"
             name="test"
             :headers="headerObj"
             :on-success="handleSuccess"
             :on-remove="imgRemove"
+            :on-preview="onImgsrc"
+            :default-file-list="addPicForm.imgSrcList"
           >
             <Button icon="ios-cloud-upload-outline" class="upload">Upload files</Button>
           </Upload>
@@ -84,6 +88,50 @@
           <Input v-model="addPicForm.content"></Input>
         </FormItem>
       </Form>
+    </Modal>
+    <!-- 编辑相册对话框 -->
+    <Modal v-model="editModal" title="编辑相册" @on-ok="editPicOK">
+      <Form :model="editPicForm" :label-width="80">
+        <FormItem label="上传图片" class="uploadImg">
+          <!-- 上传图片 -->
+          <Upload
+            action="https://api.youcann.club/img/add"
+            name="test"
+            :headers="headerObj"
+            :on-success="editPicSuccess"
+            :on-remove="editPicRemove"
+            :on-preview="onImgsrc"
+            :default-file-list="editPicForm.imgSrcList"
+          >
+            <Button icon="ios-cloud-upload-outline" class="upload">Upload files</Button>
+          </Upload>
+        </FormItem>
+        <!-- 下拉菜单 -->
+        <FormItem label="相册" prop="albumId">
+          <Select
+            class="selectSearch"
+            v-model="editPicForm.albumId"
+            style="width:200px"
+            placeholder="请选择相册"
+          >
+            <Option
+              v-for="item in albumList"
+              :value="item.albumId"
+              :key="item.title"
+            >{{ item.title }}</Option>
+          </Select>
+        </FormItem>
+        <FormItem label="名称" prop="title">
+          <Input v-model="editPicForm.title"></Input>
+        </FormItem>
+        <FormItem label="描述" prop="content">
+          <Input v-model="editPicForm.content"></Input>
+        </FormItem>
+      </Form>
+    </Modal>
+    <!-- 图片预览 -->
+    <Modal v-model="modalImg" title="图片预览">
+      <img :src="showImg" />
     </Modal>
   </div>
 </template>
@@ -112,7 +160,8 @@ export default {
         { title: '标题', key: 'title', width: 300, fixed: 'left' },
         { title: '描述', key: 'content', width: 300 },
         { title: '图片', slot: 'imgSrc', width: 200 },
-        { title: '创建时间', slot: 'addTime', width: 230, fixed: 'right' }
+        { title: '创建时间', slot: 'addTime', width: 230 },
+        { title: '操作', slot: 'action', width: 100, fixed: 'right' }
       ],
       // 默认图片
       errorGoodsImg: `this.src='${require('../assets/img/error.jpg')}'`,
@@ -121,12 +170,25 @@ export default {
         title: '',
         content: '',
         imgSrc: '',
-        albumId: ''
+        albumId: '',
+        imgSrcList: []
       },
       // 图片上传请求头
       headerObj: {
         login_token: window.sessionStorage.getItem('token')
-      }
+      },
+      modalImg: false,
+      showImg: '',
+      // 编辑图片
+      editPicForm: {
+        title: '',
+        content: '',
+        imgSrc: '',
+        imgId: '',
+        imgSrcList: []
+      },
+      // 编辑图片对话框
+      editModal: false
     }
   },
   methods: {
@@ -166,11 +228,18 @@ export default {
     // 图片上传成功
     handleSuccess(res) {
       if (res.status !== 201) return this.$message.error('图片上传失败')
+      this.addPicForm.imgSrcList = [
+        {
+          name: res.data.imgSrc,
+          url: 'https://api.youcann.club/img/' + res.data.imgSrc
+        }
+      ]
       this.addPicForm.imgSrc = res.data.imgSrc
       return this.$message.success('图片上传成功')
     },
     // 移除图片
     imgRemove() {
+      this.addPicForm.imgSrcList = []
       this.addPicForm.imgSrc = ''
     },
     // 表单确认
@@ -188,6 +257,53 @@ export default {
     resetForm() {
       this.addPicForm.imgSrc = ''
       this.$refs.addPicFormRef.resetFields()
+    },
+    // 图片预览
+    onImgsrc(file) {
+      this.modalImg = true
+      this.showImg = file.url
+    },
+    // 编辑图片
+    editPic(row) {
+      this.editModal = true
+      this.editPicForm.title = row.title
+      this.editPicForm.content = row.content
+      this.editPicForm.imgSrc = row.imgSrc
+      this.editPicForm.imgId = row.imgId
+      this.editPicForm.albumId = row.albumId
+      this.editPicForm.imgSrcList = [
+        {
+          name: row.imgSrc,
+          url: 'https://api.youcann.club/img/' + row.imgSrc
+        }
+      ]
+    },
+    // 编辑：上传
+    editPicSuccess(res) {
+      if (res.status !== 201) return this.$message.error('图片上传失败')
+      this.editPicForm.imgSrcList = [
+        {
+          name: res.data.imgSrc,
+          url: 'https://api.youcann.club/img/' + res.data.imgSrc
+        }
+      ]
+      this.editPicForm.imgSrc = res.data.imgSrc
+      return this.$message.success('图片上传成功')
+    },
+    // 编辑：清除图片
+    editPicRemove() {
+      this.editPicForm.imgSrcList = []
+      this.editPicForm.imgSrc = ''
+    },
+    // 确认编辑
+    async editPicOK() {
+      const { data: res } = await this.$http.post(
+        'back/album/pictures/edit',
+        this.editPicForm
+      )
+      if (res.status !== 201) return this.$message.error('图片编辑失败')
+      this.getPicList()
+      return this.$message.success('图片编辑成功')
     }
   },
   mounted() {
@@ -199,7 +315,7 @@ export default {
 <style scoped>
 .ivu-table-wrapper,
 .ivu-page {
-  max-width: 1032px;
+  max-width: 1132px;
 }
 .ivu-btn {
   margin: 10px 10px;

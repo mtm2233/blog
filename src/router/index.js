@@ -50,7 +50,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (to.path === '/login') return next()
   // 获取token
-  const tokenStr = window.sessionStorage.getItem('login_token')
+  const tokenStr = window.sessionStorage.getItem('logintoken')
   if (!tokenStr) return next('/login')
   next()
 })
