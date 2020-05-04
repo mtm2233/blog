@@ -6,7 +6,7 @@
       enter-button
       placeholder="请输入赞助人姓名"
       style="width: 300px"
-      @on-search="getRewardList"
+      @on-search="querySearch()"
       v-model="queryRewardForm.search"
     ></Input>
     <!-- 添加 -->
@@ -187,6 +187,11 @@ export default {
     // 关闭对话框重置表单
     resetForm() {
       this.$refs.addRewardFormRef.resetFields()
+    },
+    // 查询赞助参数发生变化
+    querySearch() {
+      this.queryRewardForm.pagenum = 1
+      this.getRewardList()
     }
   },
   mounted() {

@@ -35,8 +35,8 @@ export default {
     return {
       // 登录表单
       loginForm: {
-        username: 'root',
-        password: '123456'
+        username: '',
+        password: ''
       },
       // 效验规则
       loginFormRul: {

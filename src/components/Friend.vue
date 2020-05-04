@@ -6,7 +6,7 @@
       enter-button
       placeholder="请输入友链标题"
       style="width: 300px"
-      @on-search="getFlinkList"
+      @on-search="queryChange()"
       v-model="queryFlink.name"
     ></Input>
     <!-- 下拉菜单 -->
@@ -15,7 +15,7 @@
       v-model="queryFlink.urlTypeId"
       style="width:200px"
       clearable
-      @on-change="getFlinkList()"
+      @on-change="queryChange()"
       placeholder="请选择友链分类"
     >
       <Option
@@ -183,6 +183,11 @@ export default {
     // 关闭对话框重置表单
     resetForm() {
       this.$refs.addFlinkFormRef.resetFields()
+    },
+    // 友链查询参数发生变化
+    queryChange() {
+      this.queryFlink.pagenum = 1
+      this.getFlinkList()
     }
   },
   mounted() {

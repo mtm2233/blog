@@ -6,7 +6,7 @@
       enter-button
       placeholder="请输入标签名称"
       style="width: 300px"
-      @on-search="getTagsList()"
+      @on-search="queryChange()"
       v-model="queryTagsForm.search"
     ></Input>
     <!-- 添加标签 -->
@@ -154,6 +154,11 @@ export default {
         this.getTagsList()
         return this.$message.success('标签编辑成功')
       })
+    },
+    // 查询标签的参数发生变化
+    queryChange() {
+      this.queryTagsForm.pagenum = 1
+      this.getTagsList()
     }
   },
   mounted() {

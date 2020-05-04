@@ -6,7 +6,7 @@
       enter-button
       placeholder="请输入相册标题"
       style="width: 300px"
-      @on-search="getAlbumList"
+      @on-search="searchChange"
       v-model="queryAlbumForm.search"
     ></Input>
     <!-- 添加相册 -->
@@ -243,6 +243,11 @@ export default {
     onImgsrc(file) {
       this.modalImg = true
       this.showImg = file.url
+    },
+    // 搜索值改变
+    searchChange() {
+      this.queryAlbumForm.pagenum = 1
+      this.getAlbumList()
     }
   },
   mounted() {

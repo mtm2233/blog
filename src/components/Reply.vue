@@ -6,7 +6,7 @@
       enter-button
       placeholder="请输入回复内容"
       style="width: 300px"
-      @on-search="getReplyList()"
+      @on-search="queryChange()"
       v-model="queryReplyForm.search"
     ></Input>
     <!-- 评论审核下拉菜单 -->
@@ -15,7 +15,7 @@
       v-model="queryReplyForm.display"
       style="width:200px"
       clearable
-      @on-change="getReplyList()"
+      @on-change="queryChange()"
       placeholder="请选择审核进度"
     >
       <Option :value="1">通过审核</Option>
@@ -108,6 +108,11 @@ export default {
     // 分页--修改每页显示条数
     changePagesize(newPagesize) {
       this.queryReplyForm.pagesize = newPagesize
+      this.getReplyList()
+    },
+    // 评论查询参数发生变化
+    queryChange() {
+      this.queryReplyForm.pagenum = 1
       this.getReplyList()
     }
   },

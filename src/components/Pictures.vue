@@ -6,7 +6,7 @@
       enter-button
       placeholder="请输入图片标题"
       style="width: 300px"
-      @on-search="getPicList"
+      @on-search="queryChange()"
       v-model="getPicForm.search"
     ></Input>
     <!-- 下拉菜单 -->
@@ -15,7 +15,7 @@
       v-model="getPicForm.albumId"
       style="width:200px"
       clearable
-      @on-change="getPicList()"
+      @on-change="queryChange()"
       placeholder="请选择相册"
     >
       <Option v-for="item in albumList" :value="item.albumId" :key="item.title">{{ item.title }}</Option>
@@ -304,6 +304,11 @@ export default {
       if (res.status !== 201) return this.$message.error('图片编辑失败')
       this.getPicList()
       return this.$message.success('图片编辑成功')
+    },
+    // 图片查询参数发生变化
+    queryChange() {
+      this.getPicForm.pagenum = 1
+      this.getPicList()
     }
   },
   mounted() {

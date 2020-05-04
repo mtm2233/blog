@@ -6,7 +6,7 @@
       enter-button
       placeholder="请输入文章标题"
       style="width: 300px"
-      @on-search="getArtList()"
+      @on-search="queryChange()"
       v-model="queryArtForm.search"
     ></Input>
     <!-- 文章分类下拉菜单 -->
@@ -15,7 +15,7 @@
       v-model="queryArtForm.typeId"
       style="width:200px"
       clearable
-      @on-change="getArtList()"
+      @on-change="queryChange()"
       placeholder="请选择分类"
     >
       <Option v-for="item in artTypeList" :value="item.typeId" :key="item.typeId">{{ item.type }}</Option>
@@ -26,7 +26,7 @@
       v-model="queryArtForm.tags"
       style="width:200px"
       clearable
-      @on-change="getArtList()"
+      @on-change="queryChange()"
       placeholder="请选择标签"
     >
       <Option v-for="item in artTagsList" :value="item.tagName" :key="item.tagId">{{ item.tagName }}</Option>
@@ -167,6 +167,11 @@ export default {
         return this.$message.success('文章评论已开启')
       }
       return this.$message.warning('文章评论已禁止')
+    },
+    // 查询文章参数发生变化
+    queryChange() {
+      this.queryArtForm.pagenum = 1
+      this.getArtList()
     }
   },
   mounted() {

@@ -6,7 +6,7 @@
       enter-button
       placeholder="请输入用户昵称"
       style="width: 300px"
-      @on-search="getUserList"
+      @on-search="queryChange()"
       v-model="queryForm.search"
     ></Input>
     <!-- table表格 -->
@@ -127,6 +127,11 @@ export default {
     // 改变每页条数时触发
     changePagesize(newPagesize) {
       this.queryForm.pagesize = newPagesize
+      this.getUserList()
+    },
+    // 查询用户的参数发生变化
+    queryChange() {
+      this.queryForm.pagenum = 1
       this.getUserList()
     }
   },

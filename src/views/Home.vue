@@ -146,13 +146,6 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-html,
-body,
-#app {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-}
 .home,
 .ivu-layout {
   height: 100%;
@@ -179,12 +172,14 @@ body,
   padding: 10px;
   box-sizing: border-box;
 }
-img {
-  float: left;
+.ivu-layout-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
 }
-.ivu-breadcrumb {
-  max-width: 350px;
-  float: left;
-  margin-left: 55px;
+@media screen and (max-width: 410px) {
+  .ivu-breadcrumb {
+    font-size: 10px;
+  }
 }
 </style>

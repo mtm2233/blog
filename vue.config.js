@@ -4,5 +4,8 @@ module.exports = {
     config.plugin('provide').use(webpack.ProvidePlugin, [{
       'window.Quill': 'quill'
     }])
+  },
+  css: {
+    extract: false
   }
 }
