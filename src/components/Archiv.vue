@@ -78,7 +78,7 @@ export default {
   padding: 30px 10px;
   margin: 0 auto;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 45px;
   box-sizing: border-box;
 }
 .el-menu {

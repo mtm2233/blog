@@ -84,7 +84,7 @@ export default {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  margin-top: 75px;
+  margin-top: 55px;
   box-sizing: border-box;
   padding: 20px;
 }

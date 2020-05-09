@@ -6,7 +6,7 @@
         <el-card :body-style="{ padding: '0px' }" @click.native="jumpPic(item.albumId)">
           <!-- 图片 -->
           <div class="imgBox">
-            <img :src="'https://api.youcann.club/img/'+item.imgSrc" :title="item.content" />
+            <img :src="'https://api.youcann.club/img/'+item.imgSrc" :title="item.content" :onerror="errorGoodsImg" />
           </div>
           <!-- 大致信息 -->
           <div style="padding: 10px;">
@@ -48,7 +48,8 @@ export default {
         pagesize: '6',
         pagenum: '1'
       },
-      albumList: []
+      albumList: [],
+      errorGoodsImg: `this.src='${require('../assets/img/error.jpg')}'`
     }
   },
   methods: {
@@ -94,7 +95,7 @@ export default {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 75px;
+  margin-top: 70px;
   padding: 10px;
   box-sizing: border-box;
 }

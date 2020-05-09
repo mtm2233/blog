@@ -95,7 +95,7 @@ export default {
 }
 .scrollBox {
   width: 270px;
-  top: 88px;
+  top: 73px;
   bottom: 60px;
   padding: 0 5px;
   overflow-y: scroll;

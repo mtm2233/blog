@@ -2,13 +2,13 @@
   <div id="reply">
     <!-- 添加评论 -->
     <el-alert
-      v-if="isReply==='0'?true:false"
+      v-if="isReply===0?true:false"
       title="博主关闭了这篇内容的评论功能"
       type="warning"
       show-icon
       :closable="false"
     ></el-alert>
-    <add-reply v-if="$store.state.replyId===0 && isReply==='1'?true:false" :artId="artId"></add-reply>
+    <add-reply v-if="$store.state.replyId===0 && isReply===1?true:false" :artId="artId"></add-reply>
     <!-- 评论列表 -->
     <div class="replys">
       <replys

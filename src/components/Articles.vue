@@ -136,11 +136,13 @@ export default {
       // handler：其值是一个回调函数。即监听到变化时应该执行的函数
       handler: function(newVal) {
         this.query.search = newVal
+        this.query.pagenum = 1
       }
     },
     typeId: {
       handler: function(newVal) {
         this.query.typeId = newVal
+        this.query.pagenum = 1
       }
     },
     query: {
@@ -161,7 +163,7 @@ export default {
 </script>
 <style scoped>
 #articles {
-  margin-top: 65px;
+  margin-top: 55px;
 }
 .el-carousel,
 img {

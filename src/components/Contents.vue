@@ -24,7 +24,8 @@
       </span>
     </div>
     <hr />
-    <div v-html="article.content"></div>
+    <div class="ql-snow ql-editor" v-html="article.content"></div>
+    <!-- <div v-html="article.content"></div> -->
     <!-- 评论 -->
     <reply :artId="$route.params.artId"></reply>
   </div>
@@ -62,7 +63,7 @@ export default {
 </script>
 <style scoped>
 #contents {
-  margin-top: 70px;
+  margin-top: 55px;
 }
 h2 {
   margin: 15px 0;

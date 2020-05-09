@@ -17,10 +17,7 @@
         <!-- 头像 -->
         <div class="userImg">
           <!-- qq头像 -->
-          <img
-            v-if="addReplyForm.imgSrc"
-            :src="addReplyForm.imgSrc"
-          />
+          <img v-if="addReplyForm.imgSrc" :src="addReplyForm.imgSrc" />
           <!-- 默认头像 -->
           <svg width="100%" height="100%" v-else>
             <circle cx="50%" cy="50%" r="50%" :fill="addReplyForm.email|hashColor" />
@@ -57,7 +54,38 @@
         </el-form-item>
       </div>
       <el-form-item label="内容" prop="content">
-        <el-input type="textarea" v-model="addReplyForm.content" placeholder="欢迎留言，广告绕道。随缘回复！ →_→"></el-input>
+        <el-input
+          type="textarea"
+          v-model="addReplyForm.content"
+          placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"
+        ></el-input>
+        <!-- 表情 -->
+        <el-popover placement="bottom-start" width="370" trigger="click" ref="emojiPopover">
+          <el-tabs tab-position="bottom" type="border-card">
+            <!-- 颜文字 -->
+            <el-tab-pane label="颜文字">
+              <a class="emoji" v-for="(val,index) in yanEmoji" :key="index" @click="addEmoji(val)">{{val}}</a>
+            </el-tab-pane>
+            <!-- QQ -->
+            <el-tab-pane label="QQ">
+              <a class="emoji" v-for="(val,index) in emojiQQ" :key="index" @click="addEmoji('['+val+'.gif]')">
+                <img :src="'https://api.youcann.club/emoji/'+val+'.gif'" alt />
+              </a>
+            </el-tab-pane>
+            <!-- 阿鲁 -->
+            <el-tab-pane label="阿鲁">
+              <a class="emoji" v-for="index in emojiAL" :key="index" @click="addEmoji('['+index+'.png]')">
+                <img :src="'https://api.youcann.club/emoji/'+index+'.png'" alt />
+              </a>
+            </el-tab-pane>
+          </el-tabs>
+          <el-button
+            slot="reference"
+            size="mini"
+            icon="el-icon-picture-outline-round"
+            @click="showEmoji()"
+          >表情</el-button>
+        </el-popover>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" size="mini" @click="addReply()">提交评论</el-button>
@@ -111,7 +139,42 @@ export default {
             trigger: 'blur'
           }
         ]
-      }
+      },
+      // 颜文字
+      yanEmoji: [
+        '（⌒▽⌒）',
+        '（￣▽￣）',
+        '(=・ω・=)',
+        '(｀・ω・´)',
+        '(〜￣△￣)〜',
+        '(･∀･)',
+        '(°∀°)',
+        'ﾉ(￣3￣)╮',
+        '╮(￣▽￣)╭',
+        '╭( ´_ゝ｀)',
+        '→_→',
+        '←_←',
+        '(;¬_¬)',
+        '(ﾟДﾟ≡ﾟдﾟ)!?',
+        'Σ(ﾟдﾟ;)Σ',
+        '( ￣□￣||)<',
+        '(´；ω；`)',
+        '（/TДT)/',
+        '(^・ω・^ )',
+        '(｡･ω･｡)',
+        '(●￣(ｴ)￣●)',
+        'ε=ε=(ノ≧∇≦)ノ',
+        '(´･_･`)',
+        '(-_-#)',
+        '（￣へ￣）',
+        '(￣ε(#￣) Σ',
+        'ヽ(`Д´)ﾉ',
+        '(╯°口°)╯(┴—┴]'
+      ],
+      // QQ
+      emojiQQ: [],
+      // 阿鲁
+      emojiAL: 0
     }
   },
   methods: {
@@ -120,6 +183,13 @@ export default {
       // 效验表单
       this.$refs.addReplyRef.validate(async valid => {
         if (!valid) return
+        let con = this.addReplyForm.content
+        con = con.replace(/</g, '《')
+        con = con.replace(/>/g, '》')
+        this.addReplyForm.content = con.replace(
+          /\[(.+?)\]/g,
+          '<img src="https://api.youcann.club/emoji/$1" />'
+        )
         const { data: res } = await this.$http.post('reply/add', {
           ...this.addReplyForm,
           artId: this.artId,
@@ -163,10 +233,162 @@ export default {
       this.addReplyForm.name = res.name
       this.addReplyForm.email = this.addReplyForm.qq + '@qq.com'
       this.addReplyForm.imgSrc = res.imgSrc
+      this.addReplyForm.webSite = res.webSite
     },
     clearInfo() {
       this.addReplyForm.imgSrc = ''
       this.addReplyForm.qq = ''
+    },
+    // 显示表情
+    showEmoji() {
+      this.emojiQQ = [
+        '微笑',
+        '撇嘴',
+        '色',
+        '发呆',
+        '得意',
+        '流泪',
+        '害羞',
+        '闭嘴',
+        '睡',
+        '大哭',
+        '尴尬',
+        '呲牙',
+        '发怒',
+        '调皮',
+        '惊讶',
+        '难过',
+        '酷',
+        '冷汗',
+        '抓狂',
+        '吐',
+        '偷笑',
+        '可爱',
+        '白眼',
+        '傲慢',
+        '饥饿',
+        '困',
+        '惊恐',
+        '流汗',
+        '憨笑',
+        '大兵',
+        '奋斗',
+        '咒骂',
+        '疑问',
+        '嘘',
+        '晕',
+        '折磨',
+        '衰',
+        '骷髅',
+        '敲打',
+        '再见',
+        '擦汗',
+        '抠鼻',
+        '鼓掌',
+        '嗅大了',
+        '坏笑',
+        '左哼哼',
+        '右哼哼',
+        '哈欠',
+        '鄙视',
+        '委屈',
+        '可怜',
+        '阴险',
+        '亲亲',
+        '吓',
+        '快哭了',
+        '菜刀',
+        '西瓜',
+        '啤酒',
+        '篮球',
+        '乒乓',
+        '咖啡',
+        '饭',
+        '猪头',
+        '玫瑰',
+        '凋谢',
+        '心',
+        '心碎',
+        '蛋糕',
+        '闪电',
+        '炸弹',
+        '刀',
+        '足球',
+        '瓢虫',
+        '便便',
+        '夜晚',
+        '太阳',
+        '礼物',
+        '拥抱',
+        '强',
+        '弱',
+        '握手',
+        '胜利',
+        '抱拳',
+        '勾引',
+        '拳头',
+        '差劲',
+        '爱你',
+        'NO',
+        'OK',
+        '爱情',
+        '飞吻',
+        '发财',
+        '帅',
+        '雨伞',
+        '高铁左车头',
+        '车厢',
+        '高铁右车头',
+        '纸巾',
+        '右太极',
+        '左太极',
+        '献吻',
+        '街舞',
+        '激动',
+        '挥动',
+        '跳绳',
+        '回头',
+        '磕头',
+        '转圈',
+        '怄火',
+        '发抖',
+        '跳跳',
+        '爆筋',
+        '沙发',
+        '钱',
+        '蜡烛',
+        '枪',
+        '灯',
+        '香蕉',
+        '吻',
+        '下雨',
+        '闹钟',
+        '囍',
+        '棒棒糖',
+        '面条',
+        '车',
+        '邮件',
+        '风车',
+        '药丸',
+        '奶瓶',
+        '灯笼',
+        '青蛙',
+        '戒指',
+        'K歌',
+        '熊猫',
+        '喝彩',
+        '购物',
+        '多云',
+        '鞭炮',
+        '飞机',
+        '气球'
+      ]
+      this.emojiAL = 144
+    },
+    // 添加表情
+    addEmoji(val) {
+      this.addReplyForm.content += val
+      this.$refs.emojiPopover.doClose()
     },
     ...mapMutations(['changeReplyId'])
   },
@@ -216,7 +438,7 @@ a {
   border-radius: 50%;
   overflow: hidden;
 }
-img {
+.userImg img {
   width: 100%;
   height: 100%;
 }

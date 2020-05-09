@@ -4,10 +4,7 @@
       <!-- 默认头像 -->
       <div class="user">
         <div class="userImg">
-          <img
-            v-if="item.imgSrc"
-            :src="item.imgSrc"
-          />
+          <img v-if="item.imgSrc" :src="item.imgSrc" />
           <svg width="100%" height="100%" v-if="!item.imgSrc">
             <circle cx="50%" cy="50%" r="50%" :fill="item.email|hashColor" />
             <text
@@ -30,7 +27,7 @@
           >{{level(item.num)[1]}}</span>
           <p>
             <span v-if="pName" class="pReply">@{{pName}}</span>
-            {{item.content}}
+            <span v-html="item.content"></span>
           </p>
           <p>
             <span class="timeSpan">{{item.replyTime}}</span>
@@ -133,7 +130,7 @@ ul {
   overflow: hidden;
   position: absolute;
 }
-img {
+.userImg img {
   width: 100%;
   height: 100%;
 }

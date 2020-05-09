@@ -57,7 +57,7 @@
       <li>数据库：Mysql</li>
     </ol>
     <!-- 评论 -->
-    <reply artId="2015"></reply>
+    <reply artId="2015" class="reply"></reply>
   </div>
 </template>
 <script>
@@ -130,6 +130,9 @@ a:hover {
 li {
   margin: 10px 0;
   letter-spacing: 0.6px;
+}
+.reply{
+  text-align: left;
 }
 @media screen and (max-width: 525px) {
   #about {

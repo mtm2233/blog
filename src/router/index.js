@@ -1,17 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Blog from '../views/Blog.vue'
-import Home from '../views/Home.vue'
-import Articles from '../components/Articles.vue'
-import Contents from '../components/Contents.vue'
-import Friend from '../components/Friend.vue'
-import Readers from '../components/Readers.vue'
-import Archiv from '../components/Archiv.vue'
-import Search from '../components/Search.vue'
-import Reward from '../components/Reward.vue'
-import About from '../components/About.vue'
-import Album from '../components/Album.vue'
-import Pictures from '../components/Pictures.vue'
+
+const Blog = () => import(/* webpackChunkName: "blog-home-articles" */ '../views/Blog.vue')
+const Home = () => import(/* webpackChunkName: "blog-home-articles" */ '../views/Home.vue')
+const Articles = () => import(/* webpackChunkName: "blog-home-articles" */ '../components/Articles.vue')
+const Contents = () => import(/* webpackChunkName: "contents" */ '../components/Contents.vue')
+const Friend = () => import(/* webpackChunkName: "friend" */ '../components/Friend.vue')
+const Readers = () => import(/* webpackChunkName: "readers" */ '../components/Readers.vue')
+const Archiv = () => import(/* webpackChunkName: "archiv" */ '../components/Archiv.vue')
+const Search = () => import(/* webpackChunkName: "search" */ '../components/Search.vue')
+const Reward = () => import(/* webpackChunkName: "reward" */ '../components/Reward.vue')
+const About = () => import(/* webpackChunkName: "about" */ '../components/About.vue')
+const Album = () => import(/* webpackChunkName: "album" */ '../components/Album.vue')
+const Pictures = () => import(/* webpackChunkName: "pictures" */ '../components/Pictures.vue')
 
 Vue.use(VueRouter)
 

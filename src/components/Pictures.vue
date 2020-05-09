@@ -9,7 +9,11 @@
         :alt="item.content"
         :title="item.content"
         lazy
-      ></el-image>
+      >
+        <div slot="error" class="image-slot">
+          <img src="../assets/img/error.jpg" :title="item.content" />
+        </div>
+      </el-image>
     </div>
     <sorry v-if="picList.length===0"></sorry>
   </div>
@@ -59,6 +63,8 @@ export default {
   margin: 0 auto;
   margin-top: 75px;
   margin-bottom: 30px;
+  box-sizing: border-box;
+  padding: 0 5px;
 }
 .imgBox {
   -moz-column-count: 3;

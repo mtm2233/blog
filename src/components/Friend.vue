@@ -7,7 +7,7 @@
     <el-row :gutter="10" v-for="item in friendList" :key="item.urlTypeId">
       <h3>#{{item.typeName}}</h3>
       <el-col :xs="12" :sm="8" :lg="6" v-for="itemChild in item.children" :key="itemChild.friendId">
-        <a :href="itemChild.url" target="_blank">
+        <a :href="itemChild.url" target="_blank" :title="itemChild.descript">
           <el-card :body-style="{ padding: '5px' }">
             <img :src="itemChild.icon" :onerror="errorGoodsImg" />
             {{itemChild.name}}
