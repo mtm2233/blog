@@ -25,7 +25,24 @@
     </div>
     <hr />
     <div class="ql-snow ql-editor" v-html="article.content"></div>
-    <!-- <div v-html="article.content"></div> -->
+    <div class="copyr">
+      <span>
+        本文作者为
+        <a href="https://youcann.club/">
+          <u>youcan</u>
+        </a>，转载请注明。
+      </span>
+      <span style="float:right">
+        <i
+          class="el-icon-price-tag"
+          v-for="(item,index) in tagList"
+          :key="index"
+          @click="goByTag(item)"
+        >
+          <u>{{item}}</u>
+        </i>
+      </span>
+    </div>
     <!-- 评论 -->
     <reply :artId="$route.params.artId"></reply>
   </div>
@@ -33,12 +50,14 @@
 <script>
 // 评论组件
 import reply from './reply.vue'
+import { mapMutations } from 'vuex'
 export default {
   props: ['artId'],
   data() {
     return {
       // 博客文章详情
-      article: []
+      article: [],
+      tagList: []
     }
   },
   methods: {
@@ -51,7 +70,14 @@ export default {
         return this.$message.error('获取博客文章失败')
       }
       this.article = res.data[0]
-    }
+      this.tagList = res.data[0].tags.split(',')
+    },
+    // 点击跳转 tag
+    goByTag(tag) {
+      this.changeTags(tag)
+      this.$router.push('/articles')
+    },
+    ...mapMutations(['changeTags'])
   },
   mounted() {
     this.getArtById()
@@ -77,5 +103,13 @@ h2 {
 }
 .artcon {
   margin-bottom: 70px;
+}
+.copyr {
+  padding: 5px 15px;
+  box-sizing: border-box;
+}
+.copyr i {
+  margin-left: 10px;
+  cursor: pointer;
 }
 </style>

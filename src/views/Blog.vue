@@ -40,9 +40,18 @@
       <!-- 尾部区域 -->
       <!-- 回到首页 -->
       <el-backtop></el-backtop>
-      <el-footer>
-        <a href="http://beian.miit.gov.cn" target="_blank">ICP备案号：苏ICP备19073933号-1</a>
-        <br />Copyright © youcann.club
+      <el-footer height="80px">
+        <p>
+          <a href="http://beian.miit.gov.cn" target="_blank">ICP备案号 苏ICP备19073933号-1</a>
+        </p>
+        <p>
+          <img src="../assets/img/beian.png" alt="备案" />
+          <a
+            target="_blank"
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32031202000595"
+          >苏公网安备 32031202000595号</a>
+        </p>
+        <p>Copyright © youcann.club</p>
       </el-footer>
     </el-container>
     <!-- Drawer 抽屉 -->
@@ -120,11 +129,19 @@ export default {
   color: #303133;
 }
 .el-footer {
+  padding-bottom: 10px;
   text-align: center;
 }
 .el-footer a {
   text-decoration: none;
   font-size: 14px;
-  color: black;
+  color: #999;
+}
+p {
+  margin: 2px 0;
+  color: #999;
+}
+p img {
+  vertical-align: middle;
 }
 </style>
