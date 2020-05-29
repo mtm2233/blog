@@ -10,6 +10,8 @@ import VueQuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
+// 代码高亮
+import 'highlight.js/styles/monokai-sublime.css'
 Vue.use(VueQuillEditor)
 // 请求拦截器 携带logintoken
 // 拦截时，显示进度条

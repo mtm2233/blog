@@ -66,13 +66,13 @@
           >Upload files</Button>
         </Upload>
       </FormItem>
-      <!-- 富文本编辑器 -->
-      <FormItem label="内容" prop="contents">
-        <quill-editor v-model="artForm.content" :options="editorOption"></quill-editor>
-      </FormItem>
       <!-- 添加/修改 -->
       <FormItem label prop="contents">
         <Button type="primary" @click="artOk">添加/修改</Button>
+      </FormItem>
+      <!-- 富文本编辑器 -->
+      <FormItem label="内容" prop="contents">
+        <quill-editor v-model="artForm.content" :options="editorOption"></quill-editor>
       </FormItem>
     </Form>
     <!-- 图片预览 -->
@@ -86,6 +86,7 @@ import { quillEditor } from 'vue-quill-editor'
 import Quill from 'quill' // 引入编辑器
 import imageResize from 'quill-image-resize-module'
 import { ImageExtend, QuillWatch } from 'quill-image-extend-module'
+import hljs from 'highlight.js'
 Quill.register('modules/imageResize', imageResize)
 Quill.register('modules/ImageExtend', ImageExtend)
 // 工具菜单栏配置
@@ -143,6 +144,17 @@ export default {
                 // 触发图片上传的时候返回的信息
                 QuillWatch.emit(this.quill.id) // 使用图片上传插件的统一写法
               }
+            }
+          },
+          syntax: {
+            highlight: text => {
+              let language = text.match(/\/\*\*.{3,12}\*\*\//)
+                ? text.match(/\/\*\*.{3,12}\*\*\//)[0]
+                : ''
+              language = language.slice(3, -3)
+              return language
+                ? hljs.highlight(language, text).value
+                : hljs.highlightAuto(text).value // 这里就是代码高亮需要配置的地方
             }
           },
           // 图片放大缩小

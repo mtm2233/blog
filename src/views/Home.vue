@@ -177,6 +177,10 @@ export default {
   justify-content: space-between;
   padding: 0;
 }
+.ivu-layout-content {
+  min-height: 100vh;
+  overflow: hidden;
+}
 @media screen and (max-width: 410px) {
   .ivu-breadcrumb {
     font-size: 10px;

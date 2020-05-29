@@ -1,22 +1,44 @@
-html,
-body,
-#app{
+html, body, #app {
     padding: 0;
     margin: 0;
-    height: 100%;
+    min-height: 100vh;
+    font-family: Microsoft Yahei, "微软雅黑", "Helvetica Neue", Helvetica, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
 }
-.ivu-layout-sider-zero-width-trigger{
+
+pre {
+    font-family: Consolas !important;
+}
+
+.ivu-layout-sider-zero-width-trigger {
     z-index: 5;
 }
+
 /* 分页居中 */
+
 .ivu-page {
     margin-top: 15px;
     text-align: center;
 }
+
 /* 按钮 */
+
 .ivu-btn {
     margin: 0 10px;
 }
-.ivu-checkbox-wrapper span:last-child{
+
+.ivu-checkbox-wrapper span:last-child {
     padding-left: 5px;
 }
+
+/* 富文本编辑器 */
+
+.quill-editor {
+    position: relative;
+}
+
+.quill-editor .ql-toolbar {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+}
+
