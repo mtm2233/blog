@@ -36,7 +36,9 @@
         </el-row>
       </el-header>
       <!--页面主体区域-->
-      <router-view></router-view>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
       <!-- 尾部区域 -->
       <!-- 回到首页 -->
       <el-backtop></el-backtop>
@@ -108,6 +110,9 @@ export default {
 }
 </script>
 <style scoped>
+.el-main {
+  min-height: 100vh;
+}
 .el-header {
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.43);
   width: 100%;

@@ -1,4 +1,6 @@
 {
-  "semi": false,
-  "singleQuote": true
+  # 分号检查，不显示分号
+  "semi":false,
+  # 使用单引号
+  "singleQuote":true
 }

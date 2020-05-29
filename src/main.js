@@ -4,7 +4,6 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import './plugins/element.js'
-import { Loading } from 'element-ui'
 
 // 导入全局样式表
 import './assets/css/global.css'
@@ -12,6 +11,9 @@ import './assets/css/global.css'
 import './assets/css/quill.snow.min.css'
 // 隐藏类
 import 'element-ui/lib/theme-chalk/display.css'
+// 导入Nprogress包对应的js和css
+import Nprogress from 'nprogress'
+import 'nprogress/nprogress.css'
 // 操作cookie函数
 import { setCookie, getCookie, delCookie } from './assets/js/cookie.js'
 Vue.prototype.$http = axios
@@ -54,18 +56,20 @@ Vue.filter('hashColor', function (email) {
   const index = hashCode % 19
   return colours[index]
 })
-let loadingInstance
+
 // 在request 拦截器中，展示进度条 Nprogress.start()
-axios.interceptors.request.use(function (config) {
-  loadingInstance = Loading.service({})
+axios.interceptors.request.use(config => {
+  Nprogress.start()
+  config.headers.Authorization = window.sessionStorage.getItem('token')
   // 在最后必须return config
   return config
 })
 // 在response 拦截器中，隐藏进度条 Nprogress.done()
-axios.interceptors.response.use(function (config) {
-  loadingInstance.close()
+axios.interceptors.response.use(config => {
+  Nprogress.done()
   return config
 })
+
 Vue.config.productionTip = false
 
 new Vue({

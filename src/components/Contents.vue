@@ -1,5 +1,5 @@
 <template>
-  <div id="contents">
+  <div id="contents" class="fade-enter-active">
     <h2>{{article.title}}</h2>
     <div class="bottom">
       <!-- 发布人 -->

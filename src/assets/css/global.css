@@ -1,123 +1,192 @@
 /*全局样式表*/
 
 html, body, #app {
-    margin: 0;
-    padding: 0;
-    margin: 0 auto;
-    word-wrap: break-word;
-    word-break: break-all;
-    font-family: "微软雅黑";
-    letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+  margin: 0 auto;
+  word-wrap: break-word;
+  word-break: break-all;
+  font-family: Microsoft Yahei, "微软雅黑", "Helvetica Neue", Helvetica, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+  letter-spacing: 1px;
+  min-height: 100vh;
 }
 
-h2 {
-    font-family: "宋体", "微软雅黑";
+pre {
+  font-family: Consolas !important;
 }
 
 /* 等级牌子 */
 
 .level {
-    margin-left: 5px;
-    color: white;
-    border-radius: 3px;
-    padding: 0 5px;
-    font-size: 14px;
+  margin-left: 5px;
+  color: white;
+  border-radius: 3px;
+  padding: 0 5px;
+  font-size: 14px;
 }
 
 .level-1 {
-    background-color: #909399;
+  background-color: #909399;
 }
 
 .level-2 {
-    background-color: #409eff;
+  background-color: #409eff;
 }
 
 .level-3 {
-    background-color: #67c23a;
+  background-color: #67c23a;
 }
 
 .level-4 {
-    background-color: #e6a23c;
+  background-color: #e6a23c;
 }
 
 .level-5 {
-    background-color: #f56c6c;
+  background-color: #f56c6c;
 }
 
 .level-admin {
-    background-color: #fd5d3c;
+  background-color: #fd5d3c;
 }
 
 .navTop {
-    width: 100%;
-    text-align: center;
-    letter-spacing: 1px;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 1px;
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .ql-syntax {
-    background-color: #23241f;
-    color: #f8f8f2;
-    overflow: visible;
-    white-space: pre-wrap;
-    margin-bottom: 5px !important;
-    margin-top: 5px !important;
-    padding: 5px 10px !important;
-    border-radius: 3px;
+  background-color: #23241f;
+  color: #f8f8f2;
+  overflow: visible;
+  white-space: pre-wrap;
+  margin-bottom: 5px !important;
+  margin-top: 5px !important;
+  padding: 5px 10px !important;
+  border-radius: 3px;
 }
 
 .ql-editor blockquote {
-    border-left: 5px solid #ccc;
-    margin-bottom: 5px !important;
-    margin-top: 5px !important;
-    padding-left: 16px !important;
+  border-left: 5px solid #ccc;
+  margin-bottom: 5px !important;
+  margin-top: 5px !important;
+  padding-left: 16px !important;
 }
 
 .ql-editor p {
-    margin-bottom: 5px !important;
-    letter-spacing: 2px;
+  margin-bottom: 5px !important;
+  letter-spacing: 2px;
 }
 
 .el-popover {
-    padding: 0;
+  padding: 0;
 }
 
 .el-tabs__item {
-    padding: 7px 18px;
-    line-height: normal;
-    border: 0;
+  padding: 7px 18px;
+  line-height: normal;
+  border: 0;
 }
 
 .el-popover .el-tab-pane {
-    max-height: 200px;
-    overflow: auto;
+  max-height: 200px;
+  overflow: auto;
 }
 
 .el-tabs .emoji {
-    color: #111;
-    border-radius: 4px;
-    transition: 0.2s;
-    display: inline-block;
-    padding: 3px 5px;
-    margin: 2px 3px;
-    outline: 0;
-    text-decoration: none;
-    cursor: pointer;
+  color: #111;
+  border-radius: 4px;
+  transition: 0.2s;
+  display: inline-block;
+  padding: 3px 5px;
+  margin: 2px 3px;
+  outline: 0;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .emoji:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .emoji img {
-    width: 35px;
-    height: 35px;
+  width: 35px;
+  height: 35px;
 }
 
 .user .userInfor span img {
-    width: 35px;
-    height: 35px;
+  width: 35px;
+  height: 35px;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #23241f;
+}
+
+.hljs, .hljs-tag, .hljs-subst {
+  color: #f8f8f2;
+}
+
+.hljs-strong, .hljs-emphasis {
+  color: #a8a8a2;
+}
+
+.hljs-bullet, .hljs-quote, .hljs-number, .hljs-regexp, .hljs-literal, .hljs-link {
+  color: #ae81ff;
+}
+
+.hljs-code, .hljs-title, .hljs-section, .hljs-selector-class {
+  color: #a6e22e;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-keyword, .hljs-selector-tag, .hljs-name, .hljs-attr {
+  color: #f92672;
+}
+
+.hljs-symbol, .hljs-attribute {
+  color: #66d9ef;
+}
+
+.hljs-params, .hljs-class .hljs-title {
+  color: #f8f8f2;
+}
+
+.hljs-string, .hljs-type, .hljs-built_in, .hljs-builtin-name, .hljs-selector-id, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-addition, .hljs-variable, .hljs-template-variable {
+  color: #e6db74;
+}
+
+.hljs-comment, .hljs-deletion, .hljs-meta {
+  color: #75715e;
+}
+
+.fade-enter-active {
+  animation: fade 1s;
+}
+
+/* 下落 */
+
+@keyframes fade {
+  0% {
+    /* opacity: 0; */
+    transform: translateY(-30px);
+  }
+  100% {
+    /* opacity: 1; */
+    transform: translateY(0);
+  }
 }

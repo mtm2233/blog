@@ -1,5 +1,5 @@
 <template>
-  <div id="reward">
+  <div id="reward" class="fade-enter-active">
     <div id="zf">
       <div class="navTop">
         <h2>赞助</h2>
@@ -107,7 +107,7 @@ export default {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: 75px;
+  margin-top: 55px;
   padding: 0 10px;
   box-sizing: border-box;
 }

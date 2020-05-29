@@ -1,5 +1,5 @@
 <template>
-  <div id="album">
+  <div id="album" class="fade-enter-active">
     <el-row :gutter="15">
       <el-col :xs="24" :sm="12" :lg="8" v-for="item in albumList" :key="item.albumId">
         <!-- 卡片视图 -->
@@ -95,7 +95,7 @@ export default {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 70px;
+  margin-top: 55px;
   padding: 10px;
   box-sizing: border-box;
 }

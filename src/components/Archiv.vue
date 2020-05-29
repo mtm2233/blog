@@ -1,5 +1,5 @@
 <template>
-  <div id="archiv">
+  <div id="archiv" class="fade-enter-active">
     <div class="navTop">
       <h2>文章归档</h2>
       <h4>最后更新于 {{newArt.addTime[0]}}年{{newArt.addTime[1]}}月{{newArt.addTime[2]}}日</h4>
@@ -78,7 +78,7 @@ export default {
   padding: 30px 10px;
   margin: 0 auto;
   width: 100%;
-  margin-top: 45px;
+  margin-top: 5px;
   box-sizing: border-box;
 }
 .el-menu {

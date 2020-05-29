@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-container class="home-main">
-      <el-main>
+      <el-main class="fade-enter-active">
         <router-view></router-view>
       </el-main>
       <!--侧边栏-->
@@ -36,7 +36,9 @@
           </el-menu>
           <!-- 作品集 -->
           <h3>作品集</h3>
-          <a href="https://works.youcann.club" target="_blank"><el-button type="info" plain>点击进入</el-button></a>
+          <a href="https://works.youcann.club" target="_blank">
+            <el-button type="info" plain>点击进入</el-button>
+          </a>
           <!-- 最新评论 -->
           <h3>最新评论</h3>
           <replys :repysList="NewReplyList" :pName="''" :addReply="false"></replys>
@@ -117,7 +119,7 @@ h3 {
   max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 15px;
+  /* padding: 15px; */
 }
 .el-main {
   width: 100%;

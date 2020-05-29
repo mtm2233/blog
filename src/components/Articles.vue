@@ -1,5 +1,5 @@
 <template>
-  <div id="articles">
+  <div id="articles" class="fade-enter-active">
     <!-- 轮播图 -->
     <el-carousel class="hidden-xs-only">
       <el-carousel-item

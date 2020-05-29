@@ -1,5 +1,5 @@
 <template>
-  <div id="about">
+  <div id="about" class="fade-enter-active">
     <div class="navTop">
       <h2>关于</h2>
       <h4>我是谁?</h4>
@@ -75,7 +75,7 @@ export default {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: 75px;
+  margin-top: 55px;
   padding: 0 15px;
   box-sizing: border-box;
   margin-bottom: 50px;

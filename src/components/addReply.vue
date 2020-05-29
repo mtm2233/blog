@@ -44,7 +44,7 @@
           <el-input v-model="addReplyForm.name" @blur="qq()" placeholder="输入QQ号可快速填写"></el-input>
         </el-form-item>
         <el-form-item label="邮箱" prop="email">
-          <el-input v-model="addReplyForm.email" @blur="clearInfo()"></el-input>
+          <el-input v-model="addReplyForm.email"></el-input>
         </el-form-item>
         <el-form-item label="网址" prop="webSite">
           <el-input v-model="addReplyForm.webSite" placeholder="请加上https://"></el-input>
@@ -233,11 +233,6 @@ export default {
       this.addReplyForm.name = res.name
       this.addReplyForm.email = this.addReplyForm.qq + '@qq.com'
       this.addReplyForm.imgSrc = res.imgSrc
-      this.addReplyForm.webSite = res.webSite
-    },
-    clearInfo() {
-      this.addReplyForm.imgSrc = ''
-      this.addReplyForm.qq = ''
     },
     // 显示表情
     showEmoji() {
@@ -397,7 +392,6 @@ export default {
   },
   mounted() {
     this.getEmailToken()
-    this.qq()
   }
 }
 </script>

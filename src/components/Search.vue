@@ -1,5 +1,5 @@
 <template>
-  <div id="search">
+  <div id="search" class="fade-enter-active">
     <div class="navTop">
       <h2>搜索</h2>
       <h4>找一找你想要的内容</h4>
@@ -84,7 +84,7 @@ export default {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  margin-top: 55px;
+  margin-top: 15px;
   box-sizing: border-box;
   padding: 20px;
 }

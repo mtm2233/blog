@@ -1,5 +1,5 @@
 <template>
-  <div id="friend">
+  <div id="friend" class="fade-enter-active">
     <div class="navTop">
       <h2>友情链接</h2>
       <h4>博主的网上邻居</h4>
@@ -70,7 +70,7 @@ export default {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: 75px;
+  margin-top: 55px;
   padding: 0 15px;
   box-sizing: border-box;
 }

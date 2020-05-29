@@ -1,5 +1,5 @@
 <template>
-  <div id="pictures">
+  <div id="pictures" class="fade-enter-active">
     <div class="imgBox">
       <el-image
         v-for="item in picList"
