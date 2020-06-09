@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/articles/articles"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "isDream",
+    "navigationBarBackgroundColor": "#007AFF",
+    "backgroundColor": "#F5F5F5"
+  },
+  "usingComponents": {}
+}
