@@ -11,7 +11,7 @@
 			<h4>找到 {{total}}+ 与『{{query.search}}』相关的内容</h4>
 		</view>
 		<!-- total为0 -->
-		<view class="sorry" v-if="total===0">
+		<view class="sorry" v-if="!total&&(query.tags||query.search)">
 			<view>Sorry 没找到你想要的 ：(</view>
 			<view>
 				您可以尝试
@@ -37,11 +37,12 @@
 				</span>
 			</view>
 		</view>
-		<view class="bottomline" v-if="articleList.length">--我也是有底线的--</view>
+		<bottomline v-if="articleList.length"></bottomline>
 	</view>
 </template>
 
 <script>
+	import bottomline from '../../components/bottomline.vue'
 	import {
 		mapState
 	} from 'vuex'
@@ -65,7 +66,6 @@
 		methods: {
 			// 打开详情页
 			goContenrt(artId) {
-				console.log(artId)
 				uni.navigateTo({
 					url: '../content/content?id=' + artId
 				})
@@ -105,6 +105,9 @@
 		computed: {
 			...mapState(['httpBase', 'search', 'tags'])
 		},
+		components: {
+			bottomline
+		},
 		onLoad() {
 			this.query.tags = this.tags
 			this.query.search = this.search
@@ -116,7 +119,7 @@
 		},
 		// 滚动条到底加载
 		onReachBottom() {
-			this.query.pagenum += 1
+			this.query.pagenum++
 			this.getArticleList()
 		}
 	}
@@ -172,12 +175,6 @@
 
 				padding: 20rpx;
 			}
-		}
-
-		.bottomline {
-			text-align: center;
-			padding-bottom: 35rpx;
-			color: #C0C0C0;
 		}
 
 		.sorry {

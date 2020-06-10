@@ -7782,7 +7782,7 @@ new _vuex.default.Store({
   state: {
     httpBase: 'https://api.youcann.club/',
     // 博客文章标题
-    search: '446',
+    search: '',
     typeId: '',
     replyId: 0,
     tags: '' },

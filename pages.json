@@ -11,7 +11,8 @@
 			"path": "pages/album/album",
 			"style": {
 				"navigationBarTitleText": "相册",
-				"enablePullDownRefresh": true
+				"enablePullDownRefresh": true,
+				"onReachBottomDistance": 200
 			}
 		}, {
 			"path": "pages/archiv/archiv",
@@ -35,7 +36,11 @@
 				"navigationBarTitleText": "详情页"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/pictures/pictures",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "isDream",

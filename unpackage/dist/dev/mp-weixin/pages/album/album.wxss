@@ -24,23 +24,10 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.articles .tag,
-.articles .s {
-  padding: 35rpx;
-  text-align: center;
-  color: #FFFFFF;
-  background-color: #4CD964;
-}
-.articles .tag ._h1,
-.articles .s ._h1 {
-  font-size: 50rpx;
-  font-weight: bold;
-  margin-bottom: 10rpx;
-}
-.articles image {
+.album image {
   width: 100%;
 }
-.articles .art {
+.album .alb {
   margin: 35rpx;
   border-radius: 15rpx;
   border: 1rpx solid #ebeef5;
@@ -49,36 +36,26 @@
   color: #303133;
   box-shadow: 0 5rpx 15rpx 0 rgba(0, 0, 0, 0.1);
 }
-.articles .art .art_body {
+.album .alb .alb_body {
   padding: 20rpx;
   font-size: 40rpx;
   margin-top: 0;
 }
-.articles .art .art_footer {
+.album .alb .alb_footer {
   padding: 20rpx;
 }
-.articles .art .art_footer ._span {
+.album .alb .alb_footer ._span {
   margin-right: 35rpx;
 }
-.articles .art .art_footer ._span image {
+.album .alb .alb_footer ._span image {
   width: 35rpx;
   height: 35rpx;
   padding: 0 10rpx;
   vertical-align: middle;
 }
-.articles .sorry {
-  margin: 35rpx 0;
+.album .bottomline {
   text-align: center;
-  letter-spacing: 2rpx;
-  color: #c1c1c1;
-}
-.articles .sorry view:first-child {
-  font-size: 55rpx;
-  padding: 15rpx;
-}
-.articles .sorry view:last-child navigator,
-.articles .sorry view:last-child view {
-  color: #fd5d3c;
-  display: inline-block;
+  padding-bottom: 35rpx;
+  color: #C0C0C0;
 }
 

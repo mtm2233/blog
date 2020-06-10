@@ -5,7 +5,8 @@
     "pages/archiv/archiv",
     "pages/about/about",
     "pages/search/search",
-    "pages/content/content"
+    "pages/content/content",
+    "pages/pictures/pictures"
   ],
   "subPackages": [],
   "window": {

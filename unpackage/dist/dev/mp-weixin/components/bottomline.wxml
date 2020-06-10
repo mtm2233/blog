@@ -1,0 +1,1 @@
+<view class="bottomline"><block wx:if="{{$slots.default}}"><slot></slot></block><block wx:else>--我也是有底线的--</block></view>

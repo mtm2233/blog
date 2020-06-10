@@ -1,5 +1,8 @@
 {
   "navigationBarTitleText": "相册",
   "enablePullDownRefresh": true,
-  "usingComponents": {}
+  "onReachBottomDistance": 200,
+  "usingComponents": {
+    "bottomline": "/components/bottomline"
+  }
 }
