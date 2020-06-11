@@ -113,7 +113,8 @@
 			bottomline,
 			backTop
 		},
-		onLoad() {
+		onShow() {
+			this.articleList = []
 			this.query.tags = this.tags
 			this.query.search = this.search
 			this.getArticleList()
@@ -140,15 +141,17 @@
 		.tag,
 		.s {
 			._h1 {
-				font-size: 50rpx;
-				font-weight: bold;
+				font-size: 45rpx;
 				margin-bottom: 10rpx;
 			}
 
 			padding: 35rpx;
 			text-align: center;
-			color: #FFFFFF;
-			background-color: #4CD964;
+			color: #8a8c8e;
+			border-radius: 15rpx;
+			margin: 35rpx;
+			box-shadow: 0 5rpx 15rpx 0 rgba(0, 0, 0, .1);
+			border: 1rpx solid #ebeef5;
 		}
 
 		image {
@@ -187,10 +190,13 @@
 		}
 
 		.sorry {
-			margin: 35rpx 0;
+			padding: 35rpx;
 			text-align: center;
-			letter-spacing: 2rpx;
-			color: #c1c1c1;
+			color: #8a8c8e;
+			border-radius: 15rpx;
+			margin: 35rpx;
+			box-shadow: 0 5rpx 15rpx 0 rgba(0, 0, 0, .1);
+			border: 1rpx solid #ebeef5;
 
 			view:first-child {
 				font-size: 55rpx;

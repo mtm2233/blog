@@ -1,12 +1,12 @@
 {
   "pages": [
-    "pages/search/search",
     "pages/articles/articles",
     "pages/album/album",
     "pages/about/about",
     "pages/archiv/archiv",
     "pages/content/content",
-    "pages/pictures/pictures"
+    "pages/pictures/pictures",
+    "pages/search/search"
   ],
   "subPackages": [],
   "window": {

@@ -245,7 +245,8 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function _toConsumableArray(arr)
     bottomline: bottomline,
     backTop: backTop },
 
-  onLoad: function onLoad() {
+  onShow: function onShow() {
+    this.articleList = [];
     this.query.tags = this.tags;
     this.query.search = this.search;
     this.getArticleList();

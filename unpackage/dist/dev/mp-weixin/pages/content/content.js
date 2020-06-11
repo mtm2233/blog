@@ -133,20 +133,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
 var _default =
 {
-  data: function data() {
-    return {
-      artId: 0 };
-
-  },
-  methods: {},
-
-
-  onLoad: function onLoad(options) {
-    this.artId = options.id;
-  } };exports.default = _default;
+  data: function data() {},
+  methods: {} };exports.default = _default;
 
 /***/ })
 
