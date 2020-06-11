@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['touchmove',[['onPageScroll',['$event']]]],['tap',[['goTop',['$event']]]]]}}" class="backTop" bindtouchmove="__e" bindtap="__e"><block wx:if="{{$slots.default}}"><slot></slot></block><block wx:else><image src="../static/fonts/向上三角形.png"></image></block></view>

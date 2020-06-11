@@ -3,6 +3,7 @@
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 200,
   "usingComponents": {
-    "bottomline": "/components/bottomline"
+    "bottomline": "/components/bottomline",
+    "back-top": "/components/backTop"
   }
 }

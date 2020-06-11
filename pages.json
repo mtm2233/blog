@@ -1,6 +1,12 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "找一找你想要的"
+			}
+		},
+		{
 			"path": "pages/articles/articles",
 			"style": {
 				"navigationBarTitleText": "首页",
@@ -15,32 +21,29 @@
 				"onReachBottomDistance": 200
 			}
 		}, {
-			"path": "pages/archiv/archiv",
-			"style": {
-				"navigationBarTitleText": "文章归档",
-				"enablePullDownRefresh": true
-			}
-		}, {
 			"path": "pages/about/about",
 			"style": {
 				"navigationBarTitleText": "我是谁?"
 			}
-		}, {
-			"path": "pages/search/search",
+		},
+		{
+			"path": "pages/archiv/archiv",
 			"style": {
-				"navigationBarTitleText": "找一找你想要的内容"
+				"navigationBarTitleText": "文章归档"
 			}
-		}, {
+		},
+		{
 			"path": "pages/content/content",
 			"style": {
 				"navigationBarTitleText": "详情页"
 			}
+		}, {
+			"path": "pages/pictures/pictures",
+			"style": {
+				"navigationBarTitleText": "图片"
+			}
 		}
-	    ,{
-            "path" : "pages/pictures/pictures",
-            "style" : {}
-        }
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "isDream",

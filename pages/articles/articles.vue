@@ -38,11 +38,13 @@
 			</view>
 		</view>
 		<bottomline v-if="articleList.length"></bottomline>
+		<back-top v-if="scrollTop>=300"></back-top>
 	</view>
 </template>
 
 <script>
 	import bottomline from '../../components/bottomline.vue'
+	import backTop from '../../components/backTop.vue'
 	import {
 		mapState
 	} from 'vuex'
@@ -50,6 +52,7 @@
 		name: "articles",
 		data() {
 			return {
+				tt: false,
 				// 博客文章的条件
 				query: {
 					search: '',
@@ -60,7 +63,8 @@
 				},
 				total: 0,
 				// 博客文章列表
-				articleList: []
+				articleList: [],
+				scrollTop: 0
 			}
 		},
 		methods: {
@@ -106,7 +110,8 @@
 			...mapState(['httpBase', 'search', 'tags'])
 		},
 		components: {
-			bottomline
+			bottomline,
+			backTop
 		},
 		onLoad() {
 			this.query.tags = this.tags
@@ -121,6 +126,10 @@
 		onReachBottom() {
 			this.query.pagenum++
 			this.getArticleList()
+		},
+		//距离页面顶部距离
+		onPageScroll(res) {
+			this.scrollTop = res.scrollTop
 		}
 	}
 </script>

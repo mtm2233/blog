@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/search/search",
     "pages/articles/articles",
     "pages/album/album",
-    "pages/archiv/archiv",
     "pages/about/about",
-    "pages/search/search",
+    "pages/archiv/archiv",
     "pages/content/content",
     "pages/pictures/pictures"
   ],

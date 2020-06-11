@@ -18,10 +18,12 @@
 			</view>
 		</view>
 		<bottomline v-if="albumList.length"></bottomline>
+		<back-top v-if="scrollTop>=300"></back-top>
 	</view>
 </template>
 
 <script>
+	import backTop from '../../components/backTop.vue'
 	import bottomline from '../../components/bottomline.vue'
 	import {
 		mapState
@@ -35,7 +37,8 @@
 					pagesize: 6,
 					pagenum: 1
 				},
-				albumList: []
+				albumList: [],
+				scrollTop: 0
 			}
 		},
 		methods: {
@@ -74,7 +77,8 @@
 			...mapState(['httpBase'])
 		},
 		components: {
-			bottomline
+			bottomline,
+			backTop
 		},
 		onLoad() {
 			this.getAlbumList()
@@ -85,6 +89,10 @@
 		onReachBottom() {
 			this.queryFrom.pagenum++
 			this.getAlbumList()
+		},
+		//距离页面顶部距离
+		onPageScroll(res) {
+			this.scrollTop = res.scrollTop
 		}
 	}
 </script>
