@@ -26,6 +26,7 @@
 
 <style lang="scss">
 	.backTop {
+		background-color: #FFFFFF;
 		width: 75rpx;
 		height: 75rpx;
 		bottom: 45rpx;

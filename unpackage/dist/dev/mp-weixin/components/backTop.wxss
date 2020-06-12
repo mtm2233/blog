@@ -25,6 +25,7 @@
 /* 透明度 */
 /* 文章场景相关 */
 .backTop {
+  background-color: #FFFFFF;
   width: 75rpx;
   height: 75rpx;
   bottom: 45rpx;

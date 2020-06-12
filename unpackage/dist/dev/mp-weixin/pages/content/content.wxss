@@ -24,7 +24,41 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content .con_header .con_info ._span image {
+.contents .con_header ._h2 {
+  font-size: 35rpx;
+  font-weight: bold;
+  padding: 15rpx;
+}
+.contents .con_header .con_info ._span {
+  color: #999999;
+}
+.contents .con_header .con_info ._span image {
+  width: 35rpx;
+  height: 35rpx;
+  padding: 0 10rpx;
+  vertical-align: middle;
+}
+.contents .con_body {
+  box-sizing: border-box;
+  padding: 15rpx;
+  border-radius: 25rpx;
+}
+.contents .con_footer .copyr {
+  padding: 5rpx 15rpx;
+  box-sizing: border-box;
+}
+.contents .con_footer .copyr navigator {
+  display: inline-block;
+  text-decoration: underline;
+  color: #007AFF;
+}
+.contents .con_footer .tags {
+  padding: 15rpx 0;
+}
+.contents .con_footer .tags ._span {
+  color: #75715E;
+}
+.contents .con_footer .tags ._span image {
   width: 35rpx;
   height: 35rpx;
   padding: 0 10rpx;

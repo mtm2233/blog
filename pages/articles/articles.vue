@@ -52,7 +52,6 @@
 		name: "articles",
 		data() {
 			return {
-				tt: false,
 				// 博客文章的条件
 				query: {
 					search: '',

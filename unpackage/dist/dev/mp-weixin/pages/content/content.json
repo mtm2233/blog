@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "详情页",
-  "usingComponents": {}
+  "usingComponents": {
+    "back-top": "/components/backTop"
+  }
 }
