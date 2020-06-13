@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "图片",
-  "usingComponents": {}
+  "usingComponents": {
+    "bottomline": "/components/bottomline",
+    "back-top": "/components/backTop"
+  }
 }

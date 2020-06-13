@@ -21,11 +21,11 @@
 			<view class="ql-editor" v-html="article.content">
 			</view>
 		</view>
-		<view class="con_footer">
+		<view class="con_footer" v-if="tagList.length">
 			<view class="copyr">
 				<span>
 					本文作者为
-					<navigator url="https://youcann.club/">isDream</navigator>
+					<navigator url="https://youcann.club/" target="miniProgram">isDream</navigator>
 					，转载请注明。
 				</span>
 			</view>
