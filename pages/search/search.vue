@@ -31,6 +31,10 @@
 		},
 		methods: {
 			getTags() {
+				uni.showLoading({
+					title: '加载中',
+					mask: true
+				})
 				uni.request({
 					url: this.httpBase + 'tag/totalTags',
 					success: reslove => {
@@ -38,6 +42,7 @@
 							data: res
 						} = reslove
 						this.tags = res.data
+						uni.hideLoading()
 					}
 				})
 			},

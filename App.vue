@@ -13,20 +13,13 @@
 </script>
 
 <style>
-	@import url("./static/css/quill.snow.min.css");
-	@import url("./static/css/code.light.css");
-
+	
 	/*每个页面公共css */
 	img,
 	._img,
 	image {
 		max-width: 100%;
 	}
-
-	/* blockquote,
-	._blockquote {
-		background-color: #000000 !important;
-	} */
 
 	.ql-syntax {
 		background-color: #23241f;

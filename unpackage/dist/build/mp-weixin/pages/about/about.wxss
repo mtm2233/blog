@@ -1,0 +1,3 @@
+.about{text-align:center}.about .info,
+.about .data,
+.about .contact{padding:35rpx;border-radius:15rpx;margin:35rpx;box-shadow:0 5rpx 15rpx 0 rgba(0,0,0,.1);border:1rpx solid #ebeef5}.about image{width:150rpx;height:150rpx}.about ._h2{font-size:50rpx;margin:15rpx 0;color:#8a8c8e}.about ._h3{font-size:35rpx}.about .my{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap}.about .my ._span{width:50%}.about .my ._span ._p:first-child{font-size:25rpx;color:#8a8c8e;padding:15rpx 0}.about .content_my ._p{text-align:left}.about .content_my view ._p:first-child{font-size:30rpx;color:#8a8c8e}

@@ -1,7 +1,7 @@
 <template>
 	<view class="backTop" @touchmove="onPageScroll" @click="goTop">
 		<slot>
-			<image src="../static/fonts/向上三角形.png"></image>
+			<image src="../static/fonts/triangle.png"></image>
 		</slot>
 	</view>
 </template>

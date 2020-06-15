@@ -1,5 +1,5 @@
 {
-    "name" : "uniMBlog",
+    "name" : "isDream",
     "appid" : "__UNI__EDD4A0A",
     "description" : "",
     "versionName" : "1.0.0",
@@ -59,7 +59,8 @@
     "mp-weixin" : {
         "appid" : "wx758b2b57226db8a0",
         "setting" : {
-            "urlCheck" : false
+            "urlCheck" : true,
+            "minified" : true
         },
         "usingComponents" : true
     },

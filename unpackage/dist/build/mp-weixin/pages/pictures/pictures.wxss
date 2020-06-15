@@ -1,0 +1,1 @@
+.pictures .pic{margin:35rpx;border-radius:15rpx;border:1rpx solid #ebeef5;background-color:#fff;overflow:hidden;color:#303133;box-shadow:0 5rpx 15rpx 0 rgba(0,0,0,.1)}.pictures .pic .img_body ._span{z-index:3;box-sizing:border-box;padding:15rpx;width:100%}

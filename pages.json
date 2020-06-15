@@ -55,8 +55,8 @@
 		"list": [{
 				"text": "首页",
 				"pagePath": "pages/articles/articles",
-				"iconPath": "static/fonts/首页.png",
-				"selectedIconPath": "static/fonts/首页(1).png"
+				"iconPath": "static/fonts/home.png",
+				"selectedIconPath": "static/fonts/home1.png"
 			},
 			{
 				"text": "相册",
@@ -67,14 +67,14 @@
 			{
 				"text": "归档",
 				"pagePath": "pages/archiv/archiv",
-				"iconPath": "static/fonts/历史版本.png",
-				"selectedIconPath": "static/fonts/历史版本(1).png"
+				"iconPath": "static/fonts/history.png",
+				"selectedIconPath": "static/fonts/history1.png"
 			},
 			{
 				"text": "搜索",
 				"pagePath": "pages/search/search",
-				"iconPath": "static/fonts/搜索.png",
-				"selectedIconPath": "static/fonts/搜索(1).png"
+				"iconPath": "static/fonts/search.png",
+				"selectedIconPath": "static/fonts/search1.png"
 			},
 			{
 				"text": "关于",

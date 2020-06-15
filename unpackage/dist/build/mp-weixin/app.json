@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/articles/articles",
+    "pages/album/album",
+    "pages/about/about",
+    "pages/archiv/archiv",
+    "pages/content/content",
+    "pages/pictures/pictures",
+    "pages/search/search"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "isDream",
+    "navigationBarBackgroundColor": "#007AFF",
+    "backgroundColor": "#F5F5F5"
+  },
+  "tabBar": {
+    "selectedColor": "#007AFF",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/articles/articles",
+        "iconPath": "static/fonts/home.png",
+        "selectedIconPath": "static/fonts/home1.png"
+      },
+      {
+        "text": "相册",
+        "pagePath": "pages/album/album",
+        "iconPath": "static/fonts/image.png",
+        "selectedIconPath": "static/fonts/image(1).png"
+      },
+      {
+        "text": "归档",
+        "pagePath": "pages/archiv/archiv",
+        "iconPath": "static/fonts/history.png",
+        "selectedIconPath": "static/fonts/history1.png"
+      },
+      {
+        "text": "搜索",
+        "pagePath": "pages/search/search",
+        "iconPath": "static/fonts/search.png",
+        "selectedIconPath": "static/fonts/search1.png"
+      },
+      {
+        "text": "关于",
+        "pagePath": "pages/about/about",
+        "iconPath": "static/fonts/male.png",
+        "selectedIconPath": "static/fonts/male(1).png"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

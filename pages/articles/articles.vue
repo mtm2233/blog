@@ -27,13 +27,13 @@
 			</view>
 			<view class="art_footer">
 				<span>
-					<image src="../../static/fonts/时间.png"></image>{{item.addTime}}
+					<image src="~@/static/fonts/wx_time.png"></image>{{item.addTime}}
 				</span>
 				<span>
-					<image src="../../static/fonts/点击量.png"></image>{{item.clicks}}
+					<image src="~@/static/fonts/wx_clicks.png"></image>{{item.clicks}}
 				</span>
 				<span>
-					<image src="../../static/fonts/评论数-10.png"></image>{{item.replys}}
+					<image src="~@/static/fonts/wx_reply.png"></image>{{item.replys}}
 				</span>
 			</view>
 		</view>
@@ -75,6 +75,10 @@
 			},
 			// 获取符合条件的博客文章
 			getArticleList() {
+				uni.showLoading({
+					title: '加载中',
+					mask: true
+				})
 				uni.request({
 					url: this.httpBase + 'article/query',
 					data: {
@@ -89,6 +93,7 @@
 						this.articleList.push(...res.data)
 						this.$nextTick(function() {
 							uni.stopPullDownRefresh()
+							uni.hideLoading()
 						})
 					}
 				})
@@ -114,6 +119,7 @@
 		},
 		onShow() {
 			this.articleList = []
+			this.query.pagenum = 1
 			this.query.tags = this.tags
 			this.query.search = this.search
 			this.getArticleList()

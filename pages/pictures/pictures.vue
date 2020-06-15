@@ -28,6 +28,10 @@
 		},
 		methods: {
 			getPicList() {
+				uni.showLoading({
+					title: '加载中',
+					mask: true
+				})
 				uni.request({
 					url: this.httpBase + 'album/pictures/' + this.albId + '/?search=',
 					success: reslove => {
@@ -35,6 +39,7 @@
 							data: res
 						} = reslove
 						this.picList = res.data
+						uni.hideLoading()
 					}
 				})
 			},

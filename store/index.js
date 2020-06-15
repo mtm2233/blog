@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state: {
-		httpBase: 'https://api.youcann.club/',
+		httpBase: 'https://wx.youcann.club/',
 		// 博客文章标题
 		search: '',
 		typeId: '',

@@ -2,18 +2,18 @@
 	<view class="contents">
 		<view class="con_header">
 			<h2>{{article.title}}</h2>
-			<view class="con_info">
+			<view class="con_info" v-if="tagList.length">
 				<span>
-					<image src="../../static/fonts/用户.png">{{article.name}}</image>
+					<image src="../../static/fonts/user.png">{{article.name}}</image>
 				</span>
 				<span>
-					<image src="../../static/fonts/时间(1).png">{{article.addTime}}</image>
+					<image src="../../static/fonts/time1.png">{{article.addTime}}</image>
 				</span>
 				<span>
-					<image src="../../static/fonts/查看.png">{{article.clicks}}</image>
+					<image src="../../static/fonts/look.png">{{article.clicks}}</image>
 				</span>
 				<span>
-					<image src="../../static/fonts/消息.png">{{article.replys}}</image>
+					<image src="../../static/fonts/message.png">{{article.replys}}</image>
 				</span>
 			</view>
 		</view>
@@ -31,7 +31,7 @@
 			</view>
 			<view class="tags">
 				<span @click="goArtByTag(item)" v-for="(item,index) in tagList" :key="index">
-					<image src="../../static/fonts/标签.png" mode=""></image>
+					<image src="~@/static/fonts/tag.png" mode=""></image>
 					{{item}}
 				</span>
 			</view>
@@ -58,6 +58,10 @@
 		},
 		methods: {
 			getArtById() {
+				uni.showLoading({
+					title: '加载中',
+					mask: true
+				})
 				uni.request({
 					url: this.httpBase + 'article/artById/' + this.artId,
 					success: reslove => {
@@ -66,7 +70,11 @@
 						} = reslove
 						this.article = res.data[0]
 						this.tagList = res.data[0].tags.split(',')
+						uni.hideLoading()
 					}
+				})
+				uni.request({
+					url: this.httpBase + 'article/isReply/' + this.artId
 				})
 			},
 			goArtByTag(tag) {
@@ -96,6 +104,8 @@
 </script>
 
 <style lang="scss">
+	@import url("./quill.snow.min.css");
+	@import url("./code.light.css");
 	.contents {
 		.con_header {
 			h2 {

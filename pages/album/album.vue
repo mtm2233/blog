@@ -7,13 +7,13 @@
 			</view>
 			<view class="alb_footer">
 				<span>
-					<image src="../../static/fonts/时间.png"></image>{{item.addTime}}
+					<image src="../../static/fonts/wx_time.png"></image>{{item.addTime}}
 				</span>
 				<span>
-					<image src="../../static/fonts/点击量.png"></image>{{item.clicks}}
+					<image src="../../static/fonts/wx_clicks.png"></image>{{item.clicks}}
 				</span>
 				<span>
-					<image src="../../static/fonts/图片.png"></image>{{item.num}}
+					<image src="../../static/fonts/wx_pic.png"></image>{{item.num}}
 				</span>
 			</view>
 		</view>
@@ -44,6 +44,10 @@
 		methods: {
 			// 获取相册列表
 			getAlbumList() {
+				uni.showLoading({
+					title: '加载中',
+					mask: true
+				})
 				uni.request({
 					url: this.httpBase + 'album/querypage',
 					data: {
@@ -56,7 +60,8 @@
 						} = reslove
 						this.albumList.push(...res.data)
 						this.$nextTick(function() {
-							uni.stopPullDownRefresh()
+							uni.stopPullDownRefresh
+							uni.hideLoading()
 						})
 					}
 				})

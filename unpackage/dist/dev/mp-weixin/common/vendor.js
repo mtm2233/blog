@@ -7780,7 +7780,7 @@ _vue.default.use(_vuex.default);var _default =
 
 new _vuex.default.Store({
   state: {
-    httpBase: 'https://api.youcann.club/',
+    httpBase: 'https://wx.youcann.club/',
     // 博客文章标题
     search: '',
     typeId: '',
