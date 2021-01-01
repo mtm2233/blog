@@ -22,7 +22,7 @@
       </el-col>
       <el-col :xs="12" :sm="8" :md="6">
         <p>星座</p>
-        <p>双鱼座</p>
+        <p>白羊座</p>
       </el-col>
       <el-col :xs="12" :sm="8" :md="6">
         <p>爱好</p>
@@ -43,15 +43,15 @@
       </el-col>
       <el-col :xs="12" :sm="8" :md="6">
         <a
-          href="mailto:matianmeng@youcann.club"
-          title="matianmeng@youcann.club"
+          href="mailto:2541817610@qq.com"
+          title="2541817610@qq.com"
           target="_black"
         >Email</a>
       </el-col>
     </el-row>
     <h2>关于本站</h2>
     <ol>
-      <li>云服务器：1核2G(腾讯云)</li>
+      <li>轻量应用服务器：1核-2G-5M</li>
       <li>前端：Vue+Element-UI</li>
       <li>后端：Node.js</li>
       <li>数据库：Mysql</li>

@@ -8,7 +8,7 @@
         @click.native="jumpContent(item.artId)"
       >
         <span>{{item.title}}</span>
-        <img :src="'https://api.youcann.club/img/'+item.carImg" :onerror="errorGoodsImg" />
+        <img :src="imgUrl+item.carImg" :onerror="errorGoodsImg" />
       </el-carousel-item>
     </el-carousel>
     <!-- 博客文章列表 -->
@@ -18,7 +18,7 @@
         <el-card :body-style="{ padding: '0px' }" @click.native="jumpContent(item.artId)">
           <!-- 图片 -->
           <div class="imgBox">
-            <img :src="'https://api.youcann.club/img/'+item.imgSrc" :onerror="errorGoodsImg" />
+            <img :src="imgUrl+item.imgSrc" :onerror="errorGoodsImg" />
           </div>
           <!-- 大致信息 -->
           <div style="padding: 10px;">

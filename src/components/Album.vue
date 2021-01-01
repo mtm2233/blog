@@ -6,7 +6,7 @@
         <el-card :body-style="{ padding: '0px' }" @click.native="jumpPic(item.albumId)">
           <!-- 图片 -->
           <div class="imgBox">
-            <img :src="'https://api.youcann.club/img/'+item.imgSrc" :title="item.content" :onerror="errorGoodsImg" />
+            <img :src="imgUrl+item.imgSrc" :title="item.content" :onerror="errorGoodsImg" />
           </div>
           <!-- 大致信息 -->
           <div style="padding: 10px;">

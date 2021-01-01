@@ -1,11 +1,18 @@
+<!--
+ * @Description:
+ * @Author: mTm
+ * @Date: 2021-01-01 14:51:28
+ * @LastEditTime: 2021-01-01 15:57:50
+ * @LastEditors: mTm
+-->
 <template>
   <div id="pictures" class="fade-enter-active">
     <div class="imgBox">
       <el-image
         v-for="item in picList"
         :key="item.imgId"
-        :src="'https://api.youcann.club/img/'+item.imgSrc"
-        :preview-src-list="['https://api.youcann.club/img/'+item.imgSrc]"
+        :src="imgUrl+item.imgSrc"
+        :preview-src-list="[imgUrl+item.imgSrc]"
         :alt="item.content"
         :title="item.content"
         lazy

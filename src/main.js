@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Author: mTm
+ * @Date: 2021-01-01 14:51:28
+ * @LastEditTime: 2021-01-01 16:11:42
+ * @LastEditors: mTm
+ */
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -18,7 +25,8 @@ import 'nprogress/nprogress.css'
 import { setCookie, getCookie, delCookie } from './assets/js/cookie.js'
 Vue.prototype.$http = axios
 // axios根路径
-axios.defaults.baseURL = 'https://api.youcann.club/'
+axios.defaults.baseURL = 'https://api.isdream.cn/'
+Vue.prototype.imgUrl = 'https://api.isdream.cn/img/'
 Vue.prototype.$cookieStore = { setCookie, getCookie, delCookie }
 // 默认头像的颜色
 Vue.filter('hashColor', function (email) {

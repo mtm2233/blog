@@ -1,3 +1,10 @@
+<!--
+ * @Description:
+ * @Author: mTm
+ * @Date: 2021-01-01 14:51:28
+ * @LastEditTime: 2021-01-01 16:59:46
+ * @LastEditors: mTm
+-->
 <template>
   <div id="friend" class="fade-enter-active">
     <div class="navTop">
@@ -30,10 +37,10 @@
       <p>网站描述：</p>
       <p>网站ico图标：</p>
       <h4>本站信息：</h4>
-      <p>名称：梦在此</p>
-      <p>简介：谨记每天要做的事！</p>
-      <p>连接：https://youcann.club/</p>
-      <p>头像：https://api.youcann.club/img/favicon.ico/</p>
+      <p>名称：梦就是梦</p>
+      <p>简介：你总是一副不开心的样子(#`O′)</p>
+      <p>连接：https://isdream.cn/</p>
+      <p>头像：https://api.isdream.cn/img/favicon.ico/</p>
     </div>
     <!-- 评论 -->
     <reply artId="2009"></reply>
