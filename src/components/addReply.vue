@@ -69,13 +69,13 @@
             <!-- QQ -->
             <el-tab-pane label="QQ">
               <a class="emoji" v-for="(val,index) in emojiQQ" :key="index" @click="addEmoji('['+val+'.gif]')">
-                <img :src="'https://api.youcann.club/emoji/'+val+'.gif'" alt />
+                <img :src="'https://api.isdream.cn/emoji/'+val+'.gif'" alt />
               </a>
             </el-tab-pane>
             <!-- 阿鲁 -->
             <el-tab-pane label="阿鲁">
               <a class="emoji" v-for="index in emojiAL" :key="index" @click="addEmoji('['+index+'.png]')">
-                <img :src="'https://api.youcann.club/emoji/'+index+'.png'" alt />
+                <img :src="'https://api.isdream.cn/emoji/'+index+'.png'" alt />
               </a>
             </el-tab-pane>
           </el-tabs>
@@ -188,7 +188,7 @@ export default {
         con = con.replace(/>/g, '》')
         this.addReplyForm.content = con.replace(
           /\[(.+?)\]/g,
-          '<img src="https://api.youcann.club/emoji/$1" />'
+          '<img src="https://api.isdream.cn/emoji/$1" />'
         )
         const { data: res } = await this.$http.post('reply/add', {
           ...this.addReplyForm,

@@ -36,7 +36,7 @@
           </el-menu>
           <!-- 作品集 -->
           <h3>作品集</h3>
-          <a href="https://works.youcann.club" target="_blank">
+          <a href="https://works.isdream.cn" target="_blank">
             <el-button type="info" plain>点击进入</el-button>
           </a>
           <!-- 最新评论 -->

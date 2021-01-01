@@ -28,8 +28,8 @@
     <div class="copyr">
       <span>
         本文作者为
-        <a href="https://youcann.club/">
-          <u>youcan</u>
+        <a href="https://isdream.cn/">
+          <u>isDream</u>
         </a>，转载请注明。
       </span>
       <span style="float:right">
