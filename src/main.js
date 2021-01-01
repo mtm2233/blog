@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Author: mTm
+ * @Date: 2021-01-01 17:13:39
+ * @LastEditTime: 2021-01-01 17:16:03
+ * @LastEditors: mTm
+ */
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -81,7 +88,7 @@ Vue.filter('hashColor', function (email) {
 
 Vue.prototype.$http = axios
 // axios根路径
-axios.defaults.baseURL = 'https://api.youcann.club/'
+axios.defaults.baseURL = 'https://api.isdream.cn/'
 
 Vue.config.productionTip = false
 new Vue({

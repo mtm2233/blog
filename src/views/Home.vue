@@ -95,9 +95,9 @@
       </Layout>
       <Footer>
         ICP备案号：
-        <a href="http://beian.miit.gov.cn" target="_blank">苏ICP备19073933号-1</a>
+        <a href="http://beian.miit.gov.cn" target="_blank">苏ICP备19073933号-2</a>
         <br />Copyright ©
-        <a href="https://youcann.club" target="_blank">youcann.club</a>
+        <a href="https://isdream.cn" target="_blank">isdream.cn</a>
       </Footer>
     </Layout>
   </div>

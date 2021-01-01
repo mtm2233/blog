@@ -37,8 +37,10 @@ pre {
 }
 
 .quill-editor .ql-toolbar {
-    position: absolute;
-    bottom: 0;
-    transform: translateY(100%);
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(100vw - 1100px);
 }
 

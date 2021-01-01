@@ -5,10 +5,9 @@
         <Input v-model="artForm.title"></Input>
       </FormItem>
       <FormItem label="上传封面">
-        <!-- https://api.youcann.club/ -->
         <!-- 上传图片 -->
         <Upload
-          action="https://api.youcann.club/img/add"
+          action="https://api.isdream.cn/img/add"
           name="test"
           :headers="headerObj"
           :on-success="handleSuccess"
@@ -51,7 +50,7 @@
       </FormItem>
       <FormItem label="轮播图" prop="carImg">
         <Upload
-          action="https://api.youcann.club/img/add"
+          action="https://api.isdream.cn/img/add"
           name="test"
           :headers="headerObj"
           :on-success="uploadCarImg"
@@ -165,10 +164,10 @@ export default {
             // 使用的图片上传扩展插件
             name: 'test', // 传的参数名
             size: 2, // 单位为M, 1M = 1024KB
-            action: 'https://api.youcann.club/img/add', // 后台上传图片的接口地址
+            action: 'https://api.isdream.cn/img/add', // 后台上传图片的接口地址
             response: res => {
               // 上传成功
-              return 'https://api.youcann.club/img/' + res.data.imgSrc
+              return 'https://api.isdream.cn/img/' + res.data.imgSrc
             }
           }
         },
@@ -191,14 +190,14 @@ export default {
       this.artForm.imgSrcList = [
         {
           name: data.imgSrc,
-          url: 'https://api.youcann.club/img/' + data.imgSrc
+          url: 'https://api.isdream.cn/img/' + data.imgSrc
         }
       ]
       if (data.carousel) {
         this.artForm.carImgList = [
           {
             name: data.carImg,
-            url: 'https://api.youcann.club/img/' + data.carImg
+            url: 'https://api.isdream.cn/img/' + data.carImg
           }
         ]
       }
@@ -219,7 +218,7 @@ export default {
       this.artForm.imgSrcList = [
         {
           name: res.data.imgSrc,
-          url: 'https://api.youcann.club/img/' + res.data.imgSrc
+          url: 'https://api.isdream.cn/img/' + res.data.imgSrc
         }
       ]
       return this.$message.success('图片上传成功')
@@ -250,7 +249,7 @@ export default {
       this.artForm.carImgList = [
         {
           name: res.data.imgSrc,
-          url: 'https://api.youcann.club/img/' + res.data.imgSrc
+          url: 'https://api.isdream.cn/img/' + res.data.imgSrc
         }
       ]
       this.artForm.carImg = res.data.imgSrc
