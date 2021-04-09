@@ -1,27 +1,20 @@
-function archiver(data) {
-
-    for (ind in data) {
-        let str = data[ind].addTime.toISOString().slice(0, 10)
-        let arr = str.split('-')
-        data[ind].addTime = arr
-    }
-    let arc = {}
-    for (item of data) {
-        let time = item.addTime
-        if (!arc[time[0]]) {
-            arc[time[0]] = {}
+function archiver(val) {
+    const data = val.map(v => ({
+        ...v,
+        addTime: v.addTime.toISOString().slice(0, 10).split('-').map(time => `${time} `)
+    }));
+    const filData = {};
+    data.forEach(v => {
+        let [y, m] = v.addTime;
+        if (!(filData[y])) {
+            filData[y] = {}
         }
-        if (!arc[time[0]][time[1]]) {
-            arc[time[0]][time[1]] = []
+        if (!(filData[y][m])) {
+            filData[y][m] = [];
         }
-        // if (!arc[time[0]][time[1]][time[2]]) {
-        //     arc[time[0]][time[1]][time[2]] = []
-        // }
-        // arc[time[0]][time[1]][time[2]].push(item)
-        arc[time[0]][time[1]].push(item)
-        // return arc
-    }
-    return arc
+        filData[y][m].push(v);
+    })
+    return filData;
 }
 
 module.exports = archiver
