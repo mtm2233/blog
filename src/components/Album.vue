@@ -15,7 +15,7 @@
     <Table border :columns="columns" :data="albumList" stripe>
       <template slot-scope="{ row }" slot="imgSrc">
         <img
-          :src="'https://api.youcann.club/img/'+row.imgSrc"
+          :src="'https://api.isdream.cn/img/'+row.imgSrc"
           :title="row.content"
           :onerror="errorGoodsImg"
         />
@@ -44,7 +44,7 @@
         <FormItem label="上传图片">
           <!-- 上传图片 -->
           <Upload
-            action="https://api.youcann.club/img/add"
+            action="https://api.isdream.cn/img/add"
             name="test"
             :headers="headerObj"
             :on-success="handleSuccess"
@@ -52,7 +52,7 @@
             :on-preview="onImgsrc"
             :default-file-list="addAlbumForm.imgSrcList"
           >
-            <Button icon="ios-cloud-upload-outline" class="upload">Upload files</Button>
+            <Button icon="ios-cloud-upload-outline" class="upload">上传</Button>
           </Upload>
         </FormItem>
         <FormItem label="名称" prop="title">
@@ -68,7 +68,7 @@
         <FormItem label="上传图片">
           <!-- 上传图片 -->
           <Upload
-            action="https://api.youcann.club/img/add"
+            action="https://api.isdream.cn/img/add"
             name="test"
             :headers="headerObj"
             :on-success="editImgSuccess"
@@ -76,7 +76,7 @@
             :on-preview="onImgsrc"
             :default-file-list="editAlbumForm.imgSrcList"
           >
-            <Button icon="ios-cloud-upload-outline" class="upload">Upload files</Button>
+            <Button icon="ios-cloud-upload-outline" class="upload">上传</Button>
           </Upload>
         </FormItem>
         <FormItem label="名称" prop="title">
@@ -171,7 +171,7 @@ export default {
       this.addAlbumForm.imgSrcList = [
         {
           name: res.data.imgSrc,
-          url: 'https://api.youcann.club/img/' + res.data.imgSrc
+          url: 'https://api.isdream.cn/img/' + res.data.imgSrc
         }
       ]
       this.addAlbumForm.imgSrc = res.data.imgSrc
@@ -202,7 +202,7 @@ export default {
       this.editAlbumForm.imgSrcList = [
         {
           name: row.imgSrc,
-          url: 'https://api.youcann.club/img/' + row.imgSrc
+          url: 'https://api.isdream.cn/img/' + row.imgSrc
         }
       ]
       this.editModal = true
@@ -217,7 +217,7 @@ export default {
       this.editAlbumForm.imgSrcList = [
         {
           name: res.data.imgSrc,
-          url: 'https://api.youcann.club/img/' + res.data.imgSrc
+          url: 'https://api.isdream.cn/img/' + res.data.imgSrc
         }
       ]
       this.editAlbumForm.imgSrc = res.data.imgSrc

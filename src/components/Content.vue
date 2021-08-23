@@ -15,7 +15,7 @@
           :default-file-list="artForm.imgSrcList"
           :on-preview="onImgsrc"
         >
-          <Button icon="ios-cloud-upload-outline" class="upload">Upload files</Button>
+          <Button icon="ios-cloud-upload-outline" class="upload">上传图片</Button>
         </Upload>
       </FormItem>
       <FormItem label="分类" prop="typeId">
@@ -62,7 +62,7 @@
             icon="ios-cloud-upload-outline"
             class="upload"
             :disabled="artForm.carousel?false:true"
-          >Upload files</Button>
+          >上传</Button>
         </Upload>
       </FormItem>
       <!-- 添加/修改 -->

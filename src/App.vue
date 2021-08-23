@@ -2,7 +2,7 @@
  * @Description:
  * @Author: mTm
  * @Date: 2021-03-02 13:33:18
- * @LastEditTime: 2021-03-02 13:35:10
+ * @LastEditTime: 2021-08-23 22:15:04
  * @LastEditors: mTm
 -->
 <template>
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'app',
+  name: 'app'
 }
 </script>
 

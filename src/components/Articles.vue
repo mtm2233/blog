@@ -39,7 +39,7 @@
     <Table border :columns="columns" :data="artList" stripe>
       <template slot-scope="{ row }" slot="imgSrc">
         <img
-          :src="'https://api.youcann.club/img/'+row.imgSrc"
+          :src="'https://api.isdream.cn/img/'+row.imgSrc"
           :title="row.content"
           :onerror="errorGoodsImg"
         />

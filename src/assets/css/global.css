@@ -31,8 +31,10 @@ pre {
 }
 
 /* 富文本编辑器 */
-
-.quill-editor {
+.ql-editor {
+    max-height: 666px;
+}
+/* .quill-editor {
     position: relative;
 }
 
@@ -42,5 +44,5 @@ pre {
     top: 50%;
     transform: translateY(-50%);
     width: calc(100vw - 1100px);
-}
+} */
 

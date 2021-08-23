@@ -63,7 +63,7 @@
             :on-preview="onImgsrc"
             :default-file-list="addPicForm.imgSrcList"
           >
-            <Button icon="ios-cloud-upload-outline" class="upload">Upload files</Button>
+            <Button icon="ios-cloud-upload-outline" class="upload">上传图片</Button>
           </Upload>
         </FormItem>
         <!-- 下拉菜单 -->
@@ -103,7 +103,7 @@
             :on-preview="onImgsrc"
             :default-file-list="editPicForm.imgSrcList"
           >
-            <Button icon="ios-cloud-upload-outline" class="upload">Upload files</Button>
+            <Button icon="ios-cloud-upload-outline" class="upload">上传</Button>
           </Upload>
         </FormItem>
         <!-- 下拉菜单 -->
