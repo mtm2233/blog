@@ -60,6 +60,12 @@ export default {
       tagList: []
     }
   },
+  activated() {
+    this.getArtById()
+  },
+  mounted() {
+    this.getArtById()
+  },
   methods: {
     // 获取博客文章
     async getArtById() {
@@ -78,9 +84,6 @@ export default {
       this.$router.push('/articles')
     },
     ...mapMutations(['changeTags'])
-  },
-  mounted() {
-    this.getArtById()
   },
   components: {
     reply

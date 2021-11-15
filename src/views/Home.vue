@@ -2,7 +2,9 @@
   <div>
     <el-container class="home-main">
       <el-main class="fade-enter-active">
-        <router-view></router-view>
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </el-main>
       <!--侧边栏-->
       <el-aside class="hidden-sm-and-down" min-width="270px">
@@ -36,7 +38,7 @@
           </el-menu>
           <!-- 作品集 -->
           <h3>作品集</h3>
-          <a href="https://works.isdream.cn" target="_blank">
+          <a href="https://demo.isdream.cn" target="_blank">
             <el-button type="info" plain>点击进入</el-button>
           </a>
           <!-- 最新评论 -->

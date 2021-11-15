@@ -90,7 +90,7 @@ export default {
       articleList: [],
       // 轮播图列表
       carouselList: [],
-      errorGoodsImg: `this.src='${require('../assets/img/error.jpg')}'`
+      errorGoodsImg: `this.src='${require('../assets/img/error.png')}'`
     }
   },
   methods: {

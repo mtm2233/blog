@@ -37,7 +37,9 @@
       </el-header>
       <!--页面主体区域-->
       <el-main>
-        <router-view></router-view>
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </el-main>
       <!-- 尾部区域 -->
       <!-- 回到首页 -->

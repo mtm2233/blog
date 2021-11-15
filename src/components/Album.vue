@@ -49,7 +49,7 @@ export default {
         pagenum: '1'
       },
       albumList: [],
-      errorGoodsImg: `this.src='${require('../assets/img/error.jpg')}'`
+      errorGoodsImg: `this.src='${require('../assets/img/error.png')}'`
     }
   },
   methods: {

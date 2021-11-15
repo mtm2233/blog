@@ -2,7 +2,7 @@
  * @Description:
  * @Author: mTm
  * @Date: 2021-01-01 14:51:28
- * @LastEditTime: 2021-01-01 15:57:50
+ * @LastEditTime: 2021-11-15 09:41:21
  * @LastEditors: mTm
 -->
 <template>
@@ -18,7 +18,7 @@
         lazy
       >
         <div slot="error" class="image-slot">
-          <img src="../assets/img/error.jpg" :title="item.content" />
+          <img src="../assets/img/error.png" :title="item.content" />
         </div>
       </el-image>
     </div>
@@ -30,10 +30,22 @@ import sorry from './sorry.vue'
 import { mapState } from 'vuex'
 export default {
   name: 'pictures',
+  components: {
+    sorry
+  },
   data() {
     return {
       picList: []
     }
+  },
+  activated() {
+    this.getPicList()
+  },
+  mounted() {
+    this.getPicList()
+  },
+  computed: {
+    ...mapState(['search'])
   },
   methods: {
     async getPicList() {
@@ -51,15 +63,6 @@ export default {
         this.getPicList()
       }
     }
-  },
-  computed: {
-    ...mapState(['search'])
-  },
-  components: {
-    sorry
-  },
-  mounted() {
-    this.getPicList()
   }
 }
 </script>
